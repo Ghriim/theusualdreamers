@@ -1,0 +1,10 @@
+header:
+    navigation:
+        blog: Blog
+        equipments: Equipments
+        about: About
+
+blog:
+    post:
+        create.success: Post created successfully !
+        edit.success: Post updated successfully !

@@ -3,6 +3,7 @@
 namespace BlogBundle\Entity;
 
 use CommonBundle\Entity\AbstractBaseEntity;
+use CommonBundle\Utils\StringTools;
 
 /**
  * Class Post
@@ -55,6 +56,7 @@ class Post extends AbstractBaseEntity
     public function setTitle ($title)
     {
         $this->title = $title;
+        $this->slug  = StringTools::slugify($title);
 
         return $this;
     }

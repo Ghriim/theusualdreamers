@@ -1,0 +1,16 @@
+{% extends "::base.html.twig" %}
+
+{% block content %}
+    <section>
+        {% for post in posts %}
+            <article>
+                <h2>
+                    <a href="{{ path('blog_post_details', {'slug': post.slug}) }}" title="Details of the Post">
+                        {{ post.title }}
+                    </a>
+                </h2>
+                <span>{{ post.publication|date('d/M/y') }}</span>
+            </article>
+        {% endfor %}
+    </section>
+{% endblock %}

@@ -1,0 +1,18 @@
+BlogBundle\Entity\Post:
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            fields: [title]
+
+    properties:
+        title:
+            - Type: string
+            - NotBlank: ~
+            - Length:
+                min: 10
+                max: 150
+
+        content:
+            - Type: string
+
+        publication:
+            - Type: DateTime

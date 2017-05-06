@@ -1,7 +1,8 @@
 # Swiftmailer Configuration
 swiftmailer:
-    transport: '%mailer_transport%'
-    host: '%mailer_host%'
-    username: '%mailer_user%'
-    password: '%mailer_password%'
-    spool: { type: memory }
+    transport: smtp
+    host:      "%mailer_host%"
+    username:  "%mailer_username%"
+    password:  "%mailer_password%"
+    port:      "%mailer_port%"
+    delivery_address: "%mailer_dev_recipient%"

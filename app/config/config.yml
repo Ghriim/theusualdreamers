@@ -4,14 +4,13 @@ imports:
     - { resource: services.yml }
     - { resource: bundles/doctrine.yml }
     - { resource: bundles/swiftmailer.yml }
-    - { resource: bundles/hautelook_alice.yml }
 
 parameters:
     locale: en
 
 framework:
     #esi: ~
-    #translator: { fallbacks: ['%locale%'] }
+    translator: { fallbacks: ['%locale%'] }
     secret: '%secret%'
     router:
         resource: '%kernel.root_dir%/config/routing.yml'
