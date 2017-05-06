@@ -1,0 +1,34 @@
+BlogBundle\Entity\Post:
+    type: entity
+    table: "`post`"
+    repositoryClass: BlogBundle\Repository\PostRepository
+    id:
+        id:
+            type: integer
+            length: null
+            unique: true
+            nullable: false
+            id: true
+            generator:
+                strategy: IDENTITY
+
+    fields:
+        title:
+            type: string
+            length: 150
+            unique: true
+            nullable: false
+        slug:
+            type: string
+            length: 150
+            unique: true
+            nullable: false
+        content:
+            type: text
+            unique: false
+            nullable: true
+        publication:
+            type: datetime
+            length: null
+            unique: false
+            nullable: false

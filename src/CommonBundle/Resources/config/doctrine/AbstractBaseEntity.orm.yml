@@ -1,0 +1,15 @@
+CommonBundle\Entity\AbstractBaseEntity:
+    type: mappedSuperclass
+    fields:
+        status:
+            type: string
+            length: 50
+            unique: false
+            nullable: false
+        created:
+            type: datetime
+            length: null
+            unique: false
+            nullable: false
+    lifecycleCallbacks:
+        prePersist: ['logCreated']

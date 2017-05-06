@@ -1,0 +1,6 @@
+BlogBundle\Entity\Post:
+    post_1:
+        title: Test
+        slug: test
+        content: test
+        publication: <DateTime()>

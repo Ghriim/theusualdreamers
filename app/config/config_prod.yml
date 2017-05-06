@@ -7,15 +7,31 @@ imports:
 #        result_cache_driver: apc
 #        query_cache_driver: apc
 
+# Monolog
 monolog:
     handlers:
         main:
-            type: fingers_crossed
+            type:         fingers_crossed
             action_level: error
-            handler: nested
+            handler:      nested
         nested:
-            type: stream
-            path: '%kernel.logs_dir%/%kernel.environment%.log'
+            type:  stream
+            path:  "php://stderr"
             level: debug
         console:
-            type: console
+            type:  console
+        mail:
+            type:         fingers_crossed
+            action_level: critical
+            handler:      buffered
+        buffered:
+            type:    buffer
+            handler: swift
+        swift:
+             type:       swift_mailer
+             from_email: 'theusualdreamers@gmail.com'
+             to_email:   'theusualdreamers@gmail.com'
+             subject:    '[PROD LOG] An Error Occurred! %%message%%'
+             level:      debug
+             formatter:  monolog.formatter.html
+             content_type: text/html
