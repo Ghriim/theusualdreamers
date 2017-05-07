@@ -9,6 +9,7 @@ blog:
         create.success: Article créé avec succès !
         edit.success: Article mis à jour avec succès !
     list:
+        title: Blog
         back: Retour à la liste d'Article
         publicView: Voir la liste en mode Publique
     details:

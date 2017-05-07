@@ -10,6 +10,7 @@ blog:
         create.success: Post created successfully !
         edit.success: Post updated successfully !
         list:
+            title: Blog
             back: Back to Post list
             publicView: View public list
         details:
