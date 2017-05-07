@@ -28,7 +28,20 @@ class PostRepository extends AbstractBaseRepository
      */
     public function addCriterionSlug (QueryBuilder $queryBuilder, $slug)
     {
-        return $this->addCriterion($queryBuilder, $this->getAlias(), 'slug', $slug);
+        if (!$slug) {
+            return false;
+        }
+
+        $queryBuilder->andWhere(
+            $queryBuilder->expr()->orX(
+                $queryBuilder->expr()->like($this->getAlias() . '.englishSlug', ':slug'),
+                $queryBuilder->expr()->like($this->getAlias(). '.frenchSlug', ':slug')
+            )
+        );
+
+        $queryBuilder->setParameter('slug', $slug);
+
+        return true;
     }
 
     /**

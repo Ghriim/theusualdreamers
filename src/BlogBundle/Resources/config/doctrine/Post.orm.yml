@@ -13,22 +13,37 @@ BlogBundle\Entity\Post:
                 strategy: IDENTITY
 
     fields:
-        title:
+        englishTitle:
             type: string
             length: 150
             unique: true
             nullable: false
-        slug:
+        englishSlug:
             type: string
             length: 150
             unique: true
             nullable: false
-        cover:
+        frenchTitle:
+            type: string
+            length: 150
+            unique: true
+            nullable: false
+        frenchSlug:
+            type: string
+            length: 150
+            unique: true
+            nullable: false
+        englishContent:
             type: text
             unique: false
             nullable: true
-        content:
+        frenchContent:
             type: text
+            unique: false
+            nullable: true
+        cover:
+            type: string
+            length: 255
             unique: false
             nullable: true
         category:

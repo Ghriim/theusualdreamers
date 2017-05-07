@@ -14,14 +14,24 @@ use Symfony\Component\Validator\Context\ExecutionContextInterface;
 class Post extends AbstractBaseEntity
 {
     /**
-     * @var string $title
+     * @var string $englishTitle
      */
-    protected $title;
+    protected $englishTitle;
 
     /**
-     * @var string $slug
+     * @var string $englishSlug
      */
-    protected $slug;
+    protected $englishSlug;
+
+    /**
+     * @var string $frenchTitle
+     */
+    protected $frenchTitle;
+
+    /**
+     * @var string $frenchSlug
+     */
+    protected $frenchSlug;
 
     /**
      * @var string $cover
@@ -29,9 +39,14 @@ class Post extends AbstractBaseEntity
     protected $cover;
 
     /**
-     * @var string $content
+     * @var string $englishContent
      */
-    protected $content;
+    protected $englishContent;
+
+    /**
+     * @var string $frenchContent
+     */
+    protected $frenchContent;
 
     /**
      * @var string $category
@@ -54,20 +69,20 @@ class Post extends AbstractBaseEntity
     /**
      * @return string
      */
-    public function getTitle ()
+    public function getEnglishTitle ()
     {
-        return $this->title;
+        return $this->englishTitle;
     }
 
     /**
-     * @param string $title
+     * @param string $englishTitle
      *
      * @return $this
      */
-    public function setTitle ($title)
+    public function setEnglishTitle ($englishTitle)
     {
-        $this->title = $title;
-        $this->slug  = StringTools::slugify($title);
+        $this->englishTitle = $englishTitle;
+        $this->englishSlug  = StringTools::slugify($englishTitle);
 
         return $this;
     }
@@ -75,9 +90,38 @@ class Post extends AbstractBaseEntity
     /**
      * @return string
      */
-    public function getSlug ()
+    public function getEnglishSlug ()
     {
-        return $this->slug;
+        return $this->englishSlug;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFrenchTitle ()
+    {
+        return $this->frenchTitle;
+    }
+
+    /**
+     * @param string $frenchTitle
+     *
+     * @return $this
+     */
+    public function setFrenchTitle ($frenchTitle)
+    {
+        $this->frenchTitle = $frenchTitle;
+        $this->frenchSlug  = StringTools::slugify($frenchTitle);
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFrenchSlug ()
+    {
+        return $this->frenchSlug;
     }
 
     /**
@@ -103,19 +147,39 @@ class Post extends AbstractBaseEntity
     /**
      * @return string
      */
-    public function getContent ()
+    public function getEnglishContent ()
     {
-        return $this->content;
+        return $this->englishContent;
     }
 
     /**
-     * @param string $content
+     * @param string $englishContent
      *
      * @return $this
      */
-    public function setContent ($content)
+    public function setEnglishContent ($englishContent)
     {
-        $this->content = $content;
+        $this->englishContent = $englishContent;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFrenchContent ()
+    {
+        return $this->frenchContent;
+    }
+
+    /**
+     * @param string $frenchContent
+     *
+     * @return $this
+     */
+    public function setFrenchContent ($frenchContent)
+    {
+        $this->frenchContent = $frenchContent;
 
         return $this;
     }
@@ -167,7 +231,8 @@ class Post extends AbstractBaseEntity
      */
     public function validate (ExecutionContextInterface $context, $payload)
     {
-        $isComplete = !empty($this->getContent())
+        $isComplete = !empty($this->getEnglishContent())
+                         && !empty($this->getFrenchContent())
                          && null !== $this->getCover()
                          && null !== $this->getCategory()
                          && null !== $this->getPublication();

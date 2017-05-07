@@ -3,20 +3,24 @@
 {% block title %}Admin - {% endblock %}
 
 {% block body %}
-    <div class="row">
-        <nav class="col-sm-3 col-md-2 sidebar">
+    <div id="admin" class="row fill">
+        <nav class="col-sm-3 col-md-2 main-nav sidebar fill">
             <h1>
-                ADMIN
+                The Usual Dreamers
             </h1>
-            <ul class="nav nav-sidebar">
+            <aside>
+                Some information
+            </aside>
+            <ul class="nav side-menu">
                 <li>
-                    {{ 'header.navigation.blog'|trans }}
+                    <a href="#" title="{{ 'header.navigation.blog'|trans }}">
+                        {{ 'header.navigation.blog'|trans }}
+                    </a>
                 </li>
                 <li>
-                    {{ 'header.navigation.equipments'|trans }}
-                </li>
-                <li>
-                    {{ 'header.navigation.about'|trans }}
+                    <a href="#" title="{{ 'header.navigation.blog'|trans }}">
+                        {{ 'header.navigation.equipments'|trans }}
+                    </a>
                 </li>
                 <li>
                     <a href="{{ path('blog_post_list') }}" title="{{ 'header.navigation.publicSite'|trans }}">
@@ -26,7 +30,7 @@
             </ul>
         </nav>
 
-        <section class="col-sm-9 col-md-10 main">
+        <section class="col-sm-9 col-md-10 main fill">
             <div>
                 <ol class="breadcrumb">
                     {% block breadcrumbs %}

@@ -1,19 +1,38 @@
 BlogBundle\Entity\Post:
     constraints:
         - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
-            fields: [title]
+            fields: [englishTitle]
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            fields: [frenchTitle]
         - Callback: validate
 
     properties:
-        title:
+        englishTitle:
             - Type: string
             - NotBlank: ~
             - Length:
                 min: 10
                 max: 150
 
-        content:
+        frenchTitle:
             - Type: string
+            - NotBlank: ~
+            - Length:
+                min: 10
+                max: 150
+
+        englishContent:
+            - Type: string
+
+        frenchContent:
+            - Type: string
+
+        cover:
+            - Url:
+                protocols: [http, https]
+            - Length:
+                min: 10
+                max: 150
 
         category:
             - Type: string

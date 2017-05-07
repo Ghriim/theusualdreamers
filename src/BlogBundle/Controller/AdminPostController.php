@@ -8,6 +8,7 @@ use CommonBundle\Controller\AbstractBaseController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * Class AdminPostController
@@ -21,11 +22,7 @@ class AdminPostController extends AbstractBaseController
      */
     public function listAction ()
     {
-        $posts = $this->getPostRepository()->getManyByCriteria(
-            [
-                'publicationBefore' => new \DateTime(),
-            ]
-        );
+        $posts = $this->getPostRepository()->getManyByCriteria();
 
         return $this->render(
             'BlogBundle:AdminPost:list.html.twig',
@@ -40,7 +37,7 @@ class AdminPostController extends AbstractBaseController
      *
      * @return Response
      */
-    public function detailsAction ($slug)
+    public function previewAction ($slug)
     {
         $post = $this->getPostRepository()->getOneByCriteria(
             [
@@ -50,7 +47,7 @@ class AdminPostController extends AbstractBaseController
         );
 
         return $this->render(
-            'BlogBundle:AdminPost:details.html.twig',
+            'BlogBundle:Post:details.html.twig',
             [
                 'post' => $post
             ]
@@ -67,7 +64,10 @@ class AdminPostController extends AbstractBaseController
     {
         $post = new Post();
         if (null !== $slug) {
-            $post = $this->getDoctrine()->getRepository(Post::class)->findOneBy(['slug' => $slug]);
+            $post = $this->getPostRepository()->getOneByCriteria(['slug' => $slug]);
+            if (!$post) {
+                throw new NotFoundHttpException();
+            }
         }
 
         $form = $this->createForm(
@@ -89,7 +89,8 @@ class AdminPostController extends AbstractBaseController
                 $this->getTranslator()->trans($messageKey, [], 'messages')
 
             );
-            return $this->redirectToRoute('blog_admin_post_edit', ['slug' => $post->getSlug()]);
+
+            return $this->redirectToRoute('blog_admin_post_edit', ['slug' => $post->getEnglishSlug()]);
         }
 
         return $this->render(

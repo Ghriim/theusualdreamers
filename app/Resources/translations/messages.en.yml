@@ -13,6 +13,13 @@ blog:
             title: Blog
             back: Back to Post list
             publicView: View public list
+            addPost: Add a new Post
+        save:
+            save: Save
+            cancel: Cancel
+            preview:
+                english: Preview english version
+                french: Preview french version
         details:
             preview: Preview
             edit: Edit

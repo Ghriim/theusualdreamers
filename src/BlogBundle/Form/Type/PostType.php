@@ -8,6 +8,7 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
@@ -26,16 +27,11 @@ class PostType extends AbstractType
     public function buildForm (FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title')
-            ->add(
-                'coverFile',
-                FileType::class,
-                [
-                    'mapped'   => false,
-                    'required' => false
-                ]
-            )
-            ->add('content')
+            ->add('englishTitle')
+            ->add('frenchTitle')
+            ->add('englishContent')
+            ->add('frenchContent')
+            ->add('cover')
             ->add(
                 'category',
                 ChoiceType::class,
@@ -60,20 +56,7 @@ class PostType extends AbstractType
                         Post::STATUS_PENDING => Post::STATUS_PENDING
                     ]
                 ]
-            )
-            ->add('save', SubmitType::class);
-
-
-        $builder->addEventListener(FormEvents::POST_SUBMIT, function (FormEvent $event) use ($options) {
-            /** @var Post $post */
-            $post      = $event->getData();
-            $coverFile = $event->getForm()->get('coverFile')->getData();
-            if ($coverFile) {
-                $post->setCover(base64_encode(file_get_contents($coverFile)));
-            }
-        });
-
-
+            );
     }
 
     /**

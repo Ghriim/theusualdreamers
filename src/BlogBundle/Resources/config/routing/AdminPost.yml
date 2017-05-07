@@ -1,16 +1,7 @@
 blog_admin_post_list:
-    path:     /{_locale}/admin/blog
+    path:     /admin/blog
     defaults: { _controller: BlogBundle:AdminPost:list }
     methods: ['GET']
-    requirements:
-        _locale: en|fr
-
-blog_admin_post_details:
-    path:     /{_locale}/admin/blog/{slug}
-    defaults: { _controller: BlogBundle:AdminPost:details }
-    methods: ['GET']
-    requirements:
-        _locale: en|fr
 
 blog_admin_post_create:
     path:     /admin/blog/save
@@ -21,3 +12,10 @@ blog_admin_post_edit:
     path:     /admin/blog/save/{slug}
     defaults: { _controller: BlogBundle:AdminPost:save }
     methods: ['GET', 'PUT']
+
+blog_admin_post_preview:
+    path:     /admin/blog/preview/{_locale}/{slug}
+    defaults: { _controller: BlogBundle:AdminPost:preview }
+    methods: ['GET']
+    requirements:
+        _locale: en|fr

@@ -1,24 +1,92 @@
 {% extends "::admin_base.html.twig" %}
+{% form_theme form 'bootstrap_3_layout.html.twig' %}
 
-{% block title %}{{ parent() }}{{ post.title ? post.title : 'New Post'}}{% endblock %}
+{% set title = post.isNew ? ('blog.post.create.title'|trans) : post.englishTitle %}
+
+{% block title %}{{ parent() }}{{ title }}{% endblock %}
+
+{% block breadcrumbs %}
+    {{ parent() }}
+    <li><a href="{{ path('blog_admin_post_list') }}">{{ ('blog.post.list.title'|trans) }}</a></li>
+    <li class="active">{{ title }}</li>
+{% endblock %}
 
 {% block content %}
+    {{ form_start(form) }}
+    <div class="row">
+        <div class="col-md-9">
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active">
+                    <a href="#english" aria-controls="english" role="tab" data-toggle="tab">English</a>
+                </li>
+                <li role="presentation">
+                    <a href="#french" aria-controls="french" role="tab" data-toggle="tab">French</a>
+                </li>
+            </ul>
 
-    <div>
-        <a href="{{ path('blog_admin_post_list') }}" title="{{ 'blog.post.list.back'|trans }}">
-            {{ 'blog.post.list.back'|trans }}
-        </a>
-        {% if post.slug %}
-            <a href="{{ path('blog_admin_post_details', {'slug': post.slug}) }}" title="{{ post.title }}">
-                {{ 'blog.post.details.preview'|trans }}
-            </a>
-        {% endif %}
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="english">
+                                        {{ form_row(form.englishTitle) }}
+                    {% if post.englishSlug %}
+                        <div class="preview-slug">{{ rootUrl ~ 'en/blog/' ~ post.englishSlug }}</div>
+                    {% endif %}
+
+                    {{ form_row(form.englishContent) }}
+
+                    <div>
+                        {% if post.englishSlug %}
+                            <a href="{{ path('blog_admin_post_preview', {'_locale': 'en', 'slug': post.englishSlug}) }}"
+                               title="{{ 'blog.post.save.preview.english'|trans }}">
+                                <i class="fa fa-eye" aria-hidden="true"></i>
+                                {{ 'blog.post.save.preview.english'|trans }}
+                            </a>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div role="tabpanel" class="tab-pane" id="french">
+                    {{ form_row(form.frenchTitle) }}
+                    {% if post.frenchSlug %}
+                        <div class="preview-slug">{{ rootUrl ~ 'fr/blog/' ~ post.frenchSlug }}</div>
+                    {% endif %}
+
+                    {{ form_row(form.frenchContent) }}
+
+                    <div>
+                        {% if post.frenchSlug %}
+                            <a href="{{ path('blog_admin_post_preview', {'_locale': 'fr', 'slug': post.frenchSlug}) }}"
+                               title="{{ 'blog.post.save.preview.french'|trans }}">
+                                <i class="fa fa-eye" aria-hidden="true"></i>
+                                {{ 'blog.post.save.preview.french'|trans }}
+                            </a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            {{ form_row(form.category) }}
+            {{ form_row(form.status) }}
+            {{ form_row(form.publication) }}
+            {{ form_row(form.cover) }}
+
+            {% if post.cover %}
+                <img style="width: 100%;" src="{{ post.cover }}"/>
+            {% endif %}
+
+            <div class="actions">
+                <a class="btn btn-default" href="{{ path('blog_admin_post_list') }}"
+                   title="{{ 'blog.post.save.cancel'|trans }}">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                    {{ 'blog.post.save.cancel'|trans }}
+                </a>
+                <button class="btn btn-primary" type="submit">
+                    <i class="fa fa-floppy-o" aria-hidden="true"></i>
+                    {{ 'blog.post.save.save'|trans }}
+                </button>
+            </div>
+        </div>
     </div>
-
-    {{ form(form) }}
-
-    <div style="width: 300px">
-        <img style="width: 300px" src="data:image/jpeg;base64,{{ post.cover }}" />
-    </div>
+    {{ form_end(form) }}
 {% endblock %}
 

@@ -6,19 +6,20 @@
 
 {% block breadcrumbs %}
     {{ parent() }}
-    <li><a href="{{ path('blog_admin_post_list') }}">{{ title }}</a></li>
-    <li class="active">List</li>
+    <li class="active">{{ title }}</li>
 {% endblock %}
 
 {% block content %}
-    <div>
-        <a href="{{ path('blog_post_list') }}" title="{{ 'blog.post.list.publicView'|trans }}">
-            {{ 'blog.post.list.publicView'|trans }}
+    <div class="text-right">
+        <a href="{{ path('blog_admin_post_create') }}" title="{{ 'blog.post.list.addPost'|trans }}">
+            <i class="fa fa-plus-circle" aria-hidden="true"></i>
+            {{ 'blog.post.list.addPost'|trans }}
         </a>
     </div>
     <section>
-        <table class="table table-hover">
-            <thead>
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
                 <tr>
                     <th>
                         Title
@@ -32,39 +33,30 @@
                     <th>
                         Creation
                     </th>
-                    <th>
-                        Actions
-                    </th>
                 </tr>
-            </thead>
-            <tbody>
-            {% for post in posts %}
-                <tr>
-                    <td>
-                        <a href="{{ path('blog_admin_post_edit', {'slug': post.slug}) }}" title="{{ post.title }}">
-                            {{ post.title }}
-                        </a>
-                    </td>
-                    <td>
-                        {{ post.category }}
-                    </td>
-                    <td>
-                        {{ post.publication|date('d/m/Y') }}
-                    </td>
-                    <td>
-                        {{ post.created|date('d/m/Y') }}
-                    </td>
-                    <td>
-                        <a href="{{ path('blog_admin_post_edit', {'slug': post.slug}) }}" title="{{ post.title }}">
-                            {{ 'blog.post.details.edit'|trans }}
-                        </a>
-                        <a href="{{ path('blog_admin_post_details', {'slug': post.slug}) }}" title="{{ post.title }}">
-                            {{ 'blog.post.details.preview'|trans }}
-                        </a>
-                    </td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                {% for post in posts %}
+                    <tr>
+                        <td>
+                            <a href="{{ path('blog_admin_post_edit', {'slug': post.englishSlug}) }}"
+                               title="{{ post.frenchTitle }}">
+                                {{ post.englishTitle }}
+                            </a>
+                        </td>
+                        <td>
+                            {{ post.category }}
+                        </td>
+                        <td>
+                            {{ post.publication|date('d/m/Y') }}
+                        </td>
+                        <td>
+                            {{ post.created|date('d/m/Y') }}
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </section>
 {% endblock %}
