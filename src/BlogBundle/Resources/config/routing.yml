@@ -1,23 +1,5 @@
-blog_post_list:
-    path:     /{_locale}/blog
-    defaults: { _controller: BlogBundle:Post:list }
-    methods: ['GET']
-    requirements:
-        _locale: en|fr
+blog_post:
+    resource: "@BlogBundle/Resources/config/routing/Post.yml"
 
-blog_post_details:
-    path:     /{_locale}/blog/{slug}
-    defaults: { _controller: BlogBundle:Post:details }
-    methods: ['GET']
-    requirements:
-        _locale: en|fr
-
-blog_post_create:
-    path:     /admin/blog/save
-    defaults: { _controller: BlogBundle:Post:save }
-    methods: ['GET', 'POST']
-
-blog_post_edit:
-    path:     /admin/blog/save/{slug}
-    defaults: { _controller: BlogBundle:Post:save }
-    methods: ['GET', 'PUT']
+blog_admin_post:
+    resource: "@BlogBundle/Resources/config/routing/AdminPost.yml"

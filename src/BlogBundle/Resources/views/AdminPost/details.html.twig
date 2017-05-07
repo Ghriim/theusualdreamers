@@ -1,0 +1,30 @@
+{% extends "::admin_base.html.twig" %}
+
+
+{% block title %}{{ parent() }}{{ post.title }}{% endblock %}
+
+{% block content %}
+    <div>
+        <a href="{{ path('blog_admin_post_list') }}" title="Back to list">
+            Back To List
+        </a>
+        <a href="{{ path('blog_admin_post_edit', {'slug': post.slug}) }}" title="{{ post.title }}">
+            {{ 'blog.post.details.edit'|trans }}
+        </a>
+    </div>
+    <article>
+        <h2>{{ post.title }}</h2>
+        <div>
+            {{ post.content }}
+        </div>
+        <span>{{ post.publication|date('d/m/y H:m') }}</span>
+
+        <section>
+            AUTEUR
+        </section>
+    </article>
+
+    <aside>
+        ARTICLE SIMILAIRES
+    </aside>
+{% endblock %}

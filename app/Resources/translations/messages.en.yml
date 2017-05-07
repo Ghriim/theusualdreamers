@@ -3,8 +3,16 @@ header:
         blog: Blog
         equipments: Equipments
         about: About
+        publicSite: Public Site
 
 blog:
     post:
         create.success: Post created successfully !
         edit.success: Post updated successfully !
+        list:
+            back: Back to Post list
+            publicView: View public list
+        details:
+            preview: Preview
+            edit: Edit
+            publicView: View public details

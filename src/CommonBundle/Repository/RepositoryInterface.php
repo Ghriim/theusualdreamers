@@ -42,10 +42,26 @@ interface RepositoryInterface
     public function getManyByCriteriaQueryBuilder (array $criteria = [], array $selects = [], array $orders = []);
 
     /**
+     * @param QueryBuilder $queryBuilder
+     * @param int|int[]    $id
+     *
+     * @return boolean
+     */
+    public function addCriterionId (QueryBuilder $queryBuilder, $id);
+
+    /**
      * @param QueryBuilder    $queryBuilder
      * @param string|string[] $status
      *
      * @return boolean
      */
     public function addCriterionExcludedStatus (QueryBuilder $queryBuilder, $status);
+
+    /**
+     * @param QueryBuilder    $queryBuilder
+     * @param string|string[] $status
+     *
+     * @return bool
+     */
+    public function addCriterionStatus (QueryBuilder $queryBuilder, $status);
 }

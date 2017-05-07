@@ -1,0 +1,49 @@
+{% trans_default_domain "messages" %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Admin - {% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+        <header>
+            <h1>
+                ADMIN
+            </h1>
+            <ul>
+                <li>
+                    {{ 'header.navigation.blog'|trans }}
+                </li>
+                <li>
+                    {{ 'header.navigation.equipments'|trans }}
+                </li>
+                <li>
+                    {{ 'header.navigation.about'|trans }}
+                </li>
+                <li>
+                    <a href="{{ path('blog_post_list') }}" title="{{ 'header.navigation.publicSite'|trans }}">
+                        {{ 'header.navigation.publicSite'|trans }}
+                    </a>
+                </li>
+            </ul>
+        </header>
+        <aside>
+            {% for type, flash_messages in app.session.flashBag.all %}
+                {% for flash_message in flash_messages %}
+                    <div class="flash-{{ type }}">
+                        {{ flash_message }}
+                    </div>
+                {% endfor %}
+            {% endfor %}
+
+        </aside>
+
+        <main>
+            {% block content %}{% endblock %}
+        </main>
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

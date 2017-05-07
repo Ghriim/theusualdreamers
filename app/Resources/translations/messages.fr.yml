@@ -3,8 +3,15 @@ header:
         blog: Blog
         equipments: Equipements
         about: A propos
-
+        publicSite: Site Publique
 blog:
     post:
         create.success: Article créé avec succès !
         edit.success: Article mis à jour avec succès !
+    list:
+        back: Retour à la liste d'Article
+        publicView: Voir la liste en mode Publique
+    details:
+        preview: Prévisualisation de l'Article
+        edit: Editer
+        publicView: Voir l'Article en mode Publique

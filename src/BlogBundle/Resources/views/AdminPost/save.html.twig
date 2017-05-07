@@ -1,0 +1,24 @@
+{% extends "::admin_base.html.twig" %}
+
+{% block title %}{{ parent() }}{{ post.title ? post.title : 'New Post'}}{% endblock %}
+
+{% block content %}
+
+    <div>
+        <a href="{{ path('blog_admin_post_list') }}" title="{{ 'blog.post.list.back'|trans }}">
+            {{ 'blog.post.list.back'|trans }}
+        </a>
+        {% if post.slug %}
+            <a href="{{ path('blog_admin_post_details', {'slug': post.slug}) }}" title="{{ post.title }}">
+                {{ 'blog.post.details.preview'|trans }}
+            </a>
+        {% endif %}
+    </div>
+
+    {{ form(form) }}
+
+    <div style="width: 300px">
+        <img style="width: 300px" src="data:image/jpeg;base64,{{ post.cover }}" />
+    </div>
+{% endblock %}
+

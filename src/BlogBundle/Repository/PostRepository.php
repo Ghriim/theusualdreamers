@@ -15,14 +15,14 @@ class PostRepository extends AbstractBaseRepository
     /**
      * @return string
      */
-    public function getAlias()
+    public function getAlias ()
     {
         return 'post';
     }
 
     /**
-     * @param QueryBuilder $queryBuilder
-     * @param string       $slug
+     * @param QueryBuilder    $queryBuilder
+     * @param string|string[] $slug
      *
      * @return bool
      */

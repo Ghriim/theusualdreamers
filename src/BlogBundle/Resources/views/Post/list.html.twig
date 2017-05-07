@@ -1,11 +1,13 @@
-{% extends "::base.html.twig" %}
+{% extends "::public_base.html.twig" %}
 
 {% block content %}
     <section>
         {% for post in posts %}
+
+            {% block title %}Blog{% endblock %}
             <article>
                 <h2>
-                    <a href="{{ path('blog_post_details', {'slug': post.slug}) }}" title="Details of the Post">
+                    <a href="{{ path('blog_post_details', {'slug': post.slug}) }}" title="{{ post.title }}">
                         {{ post.title }}
                     </a>
                 </h2>

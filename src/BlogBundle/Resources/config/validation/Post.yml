@@ -2,6 +2,7 @@ BlogBundle\Entity\Post:
     constraints:
         - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
             fields: [title]
+        - Callback: validate
 
     properties:
         title:
@@ -14,5 +15,15 @@ BlogBundle\Entity\Post:
         content:
             - Type: string
 
+        category:
+            - Type: string
+            - Choice:
+                choices: ['travel', 'running', 'vanlife']
+
         publication:
             - Type: DateTime
+
+        status:
+            - Type: string
+            - Choice:
+                choices: ['active', 'pending', 'deleted']

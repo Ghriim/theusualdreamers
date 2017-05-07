@@ -129,9 +129,25 @@ abstract class AbstractBaseRepository extends EntityRepository implements Reposi
     /**
      * {@inheritdoc}
      */
+    public function addCriterionId (QueryBuilder $queryBuilder, $id)
+    {
+        return $this->addCriterion($queryBuilder, $this->getAlias(), 'id', $id);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function addCriterionExcludedStatus (QueryBuilder $queryBuilder, $excludedStatus)
     {
         return $this->addCriterion($queryBuilder, $this->getAlias(), 'status', $excludedStatus, true);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function addCriterionStatus (QueryBuilder $queryBuilder, $status)
+    {
+        return $this->addCriterion($queryBuilder, $this->getAlias(), 'status', $status);
     }
 
     /**

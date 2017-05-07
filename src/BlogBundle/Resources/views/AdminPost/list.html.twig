@@ -1,0 +1,26 @@
+{% extends "::admin_base.html.twig" %}
+
+{% block content %}
+    <div>
+        <a href="{{ path('blog_post_list') }}" title="{{ 'blog.post.list.publicView'|trans }}">
+            {{ 'blog.post.list.publicView'|trans }}
+        </a>
+    </div>
+    <section>
+        {% for post in posts %}
+            <article>
+                <h2>
+                    <a href="{{ path('blog_admin_post_edit', {'slug': post.slug}) }}" title="{{ post.title }}">
+                        {{ post.title }}
+                    </a>
+                </h2>
+
+                <span>{{ post.publication|date('d/M/y') }}</span>
+
+                <a href="{{ path('blog_admin_post_details', {'slug': post.slug}) }}" title="{{ post.title }}">
+                    {{ 'blog.post.details.preview'|trans }}
+                </a>
+            </article>
+        {% endfor %}
+    </section>
+{% endblock %}

@@ -23,12 +23,21 @@ BlogBundle\Entity\Post:
             length: 150
             unique: true
             nullable: false
+        cover:
+            type: text
+            unique: false
+            nullable: true
         content:
             type: text
             unique: false
+            nullable: true
+        category:
+            type: string
+            length: 150
+            unique: true
             nullable: true
         publication:
             type: datetime
             length: null
             unique: false
-            nullable: false
+            nullable: true
