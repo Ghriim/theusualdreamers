@@ -13,6 +13,10 @@ use Symfony\Component\Validator\Context\ExecutionContextInterface;
  */
 class Post extends AbstractBaseEntity
 {
+    const STATUS_PUBLISHED = 'published';
+    const STATUS_DRAFT     = 'draft';
+    const STATUS_BACK_LOG  = 'back-log';
+
     /**
      * @var string $englishTitle
      */
@@ -63,7 +67,7 @@ class Post extends AbstractBaseEntity
      */
     public function getDefaultStatus ()
     {
-        return self::STATUS_PENDING;
+        return self::STATUS_BACK_LOG;
     }
 
     /**
@@ -237,7 +241,7 @@ class Post extends AbstractBaseEntity
                          && null !== $this->getCategory()
                          && null !== $this->getPublication();
 
-        if (self::STATUS_ACTIVE === $this->getStatus() && false === $isComplete) {
+        if (self::STATUS_PUBLISHED === $this->getStatus() && false === $isComplete) {
             $context->buildViolation('A Post can only be published if it is entirely written')
                     ->atPath('global')
                     ->addViolation();

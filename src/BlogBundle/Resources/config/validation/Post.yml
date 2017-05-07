@@ -45,4 +45,4 @@ BlogBundle\Entity\Post:
         status:
             - Type: string
             - Choice:
-                choices: ['active', 'pending', 'deleted']
+                choices: ['draft', 'back-log', 'published', 'deleted']

@@ -10,11 +10,16 @@
 {% endblock %}
 
 {% block content %}
-    <div class="text-right">
-        <a href="{{ path('blog_admin_post_create') }}" title="{{ 'blog.post.list.addPost'|trans }}">
-            <i class="fa fa-plus-circle" aria-hidden="true"></i>
-            {{ 'blog.post.list.addPost'|trans }}
-        </a>
+    <div class="row">
+        <div class="col-md-6 text-left important">
+            {{ 'blog.post.list.count'|trans }}&nbsp;{{ pagination.getTotalItemCount }}
+        </div>
+        <div class="col-md-6 text-right">
+            <a href="{{ path('blog_admin_post_create') }}" title="{{ 'blog.post.list.addPost'|trans }}">
+                <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                {{ 'blog.post.list.addPost'|trans }}
+            </a>
+        </div>
     </div>
     <section>
         <div class="table-responsive">
@@ -22,21 +27,24 @@
                 <thead>
                 <tr>
                     <th>
-                        Title
+                        {{ 'blog.post.list.table.header.title'|trans }}
                     </th>
                     <th>
-                        Category
+                        {{ 'blog.post.list.table.header.category'|trans }}
                     </th>
                     <th>
-                        Publication
+                        {{ 'blog.post.list.table.header.creation'|trans }}
                     </th>
                     <th>
-                        Creation
+                        {{ 'blog.post.list.table.header.publication'|trans }}
+                    </th>
+                    <th>
+                        {{ 'blog.post.list.table.header.status'|trans }}
                     </th>
                 </tr>
                 </thead>
                 <tbody>
-                {% for post in posts %}
+                {% for post in pagination %}
                     <tr>
                         <td>
                             <a href="{{ path('blog_admin_post_edit', {'slug': post.englishSlug}) }}"
@@ -48,15 +56,22 @@
                             {{ post.category }}
                         </td>
                         <td>
-                            {{ post.publication|date('d/m/Y') }}
+                            {{ post.created|date('d/m/Y') }}
                         </td>
                         <td>
-                            {{ post.created|date('d/m/Y') }}
+                            {{ post.publication ? post.publication|date('d/m/Y') : null }}
+                        </td>
+                        <td>
+                            {{ post.status }}
                         </td>
                     </tr>
                 {% endfor %}
                 </tbody>
             </table>
+        </div>
+
+        <div class="navigation text-center">
+            {{ knp_pagination_render(pagination) }}
         </div>
     </section>
 {% endblock %}

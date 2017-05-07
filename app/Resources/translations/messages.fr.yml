@@ -4,24 +4,33 @@ header:
         equipments: Equipements
         about: A propos
         publicSite: Site Publique
+
 blog:
     post:
         create.success: Article créé avec succès !
         edit.success: Article mis à jour avec succès !
-    list:
-        title: Blog
-        back: Retour à la liste d'Article
-        publicView: Voir la liste en mode Publique
-        addPost: Add a new Post
-    details:
-        preview: Prévisualisation de l'Article
-        edit: Editer
-        publicView: Voir l'Article en mode Publique
-    save:
-        save: Enregistrer
-        cancel: Annuler
-        preview:
-            english: Prévisualier la version anglaise
-            french: Prévisualier la version française
-    create:
-        title: New Post
+        list:
+            title: Blog
+            back: Retour à la liste des Articles
+            publicView: Voir la liste en mode Publique
+            addPost: Ajouter un Article
+            count: Nombre d'Articles :
+            table:
+                header:
+                    title: Titre
+                    category: Catégorie
+                    creation: Création
+                    publication: Publication
+                    status: Statut
+        details:
+            preview: Prévisualisation de l'Article
+            edit: Editer
+            publicView: Voir l'Article en mode Publique
+        save:
+            save: Enregistrer
+            cancel: Annuler
+            preview:
+                english: Prévisualier la version anglaise
+                french: Prévisualier la version française
+        create:
+            title: Nouvel Article

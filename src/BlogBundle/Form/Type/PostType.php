@@ -52,8 +52,9 @@ class PostType extends AbstractType
                 ChoiceType::class,
                 [
                     'choices' => [
-                        Post::STATUS_ACTIVE  => Post::STATUS_ACTIVE,
-                        Post::STATUS_PENDING => Post::STATUS_PENDING
+                        Post::STATUS_BACK_LOG  => Post::STATUS_BACK_LOG,
+                        Post::STATUS_DRAFT     => Post::STATUS_DRAFT,
+                        Post::STATUS_PUBLISHED => Post::STATUS_PUBLISHED,
                     ]
                 ]
             );

@@ -18,16 +18,24 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 class AdminPostController extends AbstractBaseController
 {
     /**
+     * @param Request $request
+     *
      * @return Response
      */
-    public function listAction ()
+    public function listAction (Request $request)
     {
-        $posts = $this->getPostRepository()->getManyByCriteria();
+        $queryBuilder = $this->getPostRepository()->getManyByCriteriaQueryBuilder();
+
+        $pagination = $this->getPaginator()->paginate(
+            $queryBuilder,
+            $request->query->getInt('page', 1),
+            self::DEFAULT_PAGINATOR
+        );
 
         return $this->render(
             'BlogBundle:AdminPost:list.html.twig',
             [
-                'posts' => $posts
+                'pagination' => $pagination
             ]
         );
     }

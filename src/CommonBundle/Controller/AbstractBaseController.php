@@ -4,6 +4,7 @@ namespace CommonBundle\Controller;
 
 use CommonBundle\Controller\Traits\RepositoryTrait;
 use Doctrine\ORM\EntityManager;
+use Knp\Component\Pager\Paginator;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Routing\Router;
 use Symfony\Component\Translation\Translator;
@@ -16,6 +17,8 @@ use Symfony\Component\Translation\Translator;
 abstract class AbstractBaseController extends Controller
 {
     use RepositoryTrait;
+
+    const DEFAULT_PAGINATOR = 25;
 
     /**
      * @return EntityManager
@@ -39,5 +42,13 @@ abstract class AbstractBaseController extends Controller
     protected function getTranslator ()
     {
         return $this->get('translator');
+    }
+
+    /**
+     * @return Paginator
+     */
+    protected function getPaginator ()
+    {
+        return $this->get('knp_paginator');
     }
 }

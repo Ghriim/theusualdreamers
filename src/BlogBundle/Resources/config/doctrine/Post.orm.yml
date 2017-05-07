@@ -49,8 +49,8 @@ BlogBundle\Entity\Post:
         category:
             type: string
             length: 150
-            unique: true
-            nullable: true
+            unique: false
+            nullable: false
         publication:
             type: datetime
             length: null

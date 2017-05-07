@@ -9,8 +9,6 @@ namespace CommonBundle\Entity;
  */
 abstract class AbstractBaseEntity
 {
-    const STATUS_ACTIVE  = 'active';
-    const STATUS_PENDING = 'pending';
     const STATUS_DELETED = 'deleted';
 
     /**
