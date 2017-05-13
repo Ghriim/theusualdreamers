@@ -17,9 +17,9 @@ class DateTools
     static public function getLocalizedDateFormat($locale )
     {
         if ('en' === $locale) {
-            return 'm/d/y H:m';
+            return 'm/d/y';
         } elseif ('en' === $locale) {
-            return 'd/m/y H:m';
+            return 'd/m/y';
         }
         throw new \LogicException();
     }

@@ -4,6 +4,8 @@ header:
         equipments: Equipements
         about: A propos
         publicSite: Site Publique
+        inspiration: Inspiration
+        contact: Contact
 
 blog:
     post:
@@ -37,3 +39,6 @@ blog:
                 french: Prévisualier la version française
         create:
             title: Nouvel Article
+        enum:
+            category:
+                travel: Voyage

@@ -1,38 +1,92 @@
 {% extends "::layout/_base.html.twig" %}
 
 {% block body %}
-    <header>
-        <h1>
-            The Usual Dreamers
-        </h1>
-        <ul>
-            <li>
-                {{ 'header.navigation.blog' | trans }}
-            </li>
-            <li>
-                {{ 'header.navigation.equipments' | trans }}
-            </li>
-            <li>
-                {{ 'header.navigation.about' | trans }}
-            </li>
-        </ul>
-    </header>
-    <aside>
-        {% for type, flash_messages in app.session.flashBag.all %}
-            {% for flash_message in flash_messages %}
-                <div class="flash-{{ type }}">
-                    {{ flash_message }}
+    <div id="public" class="fill">
+        <header class="row">
+            <nav class="navbar navbar-default navbar-fixed-top">
+                <div class="col-md-10 col-md-offset-1">
+                    <div class="clearfix">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                    data-target="#main-nav" aria-expanded="false">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+
+                            <a href="" title="" class="permanent-marker navbar-brand">
+                                The Usual Dreamers
+                            </a>
+                        </div>
+
+                        <div class="collapse navbar-collapse" id="main-nav">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li>
+                                    <a href="" title="">
+                                        {{ 'header.navigation.blog' | trans }}
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="" title="">
+                                        {{ 'header.navigation.inspiration' | trans }}
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="" title="">
+                                        {{ 'header.navigation.equipments' | trans }}
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="" title="">
+                                        {{ 'header.navigation.about' | trans }}
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="" title="">
+                                        {{ 'header.navigation.contact' | trans }}
+                                    </a>
+                                </li>
+                                <li class="hidden-sm hidden-xs divider-vertical"></li>
+                                <li class="hidden-sm divider-horizontal"></li>
+                                <li>
+                                    {% if app.request.get('_locale') == 'en' %}
+                                        <a href="" title="Basculer le site en français">
+                                            FR
+                                        </a>
+                                    {% elseif app.request.get('_locale') == 'fr' %}
+                                        <a href="" title="Switch the site to english">
+                                            EN
+                                        </a>
+                                    {% endif %}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-            {% endfor %}
-        {% endfor %}
+            </nav>
+        </header>
+        <div class="row">
+            <div class="col-md-10 col-sm-12 col-md-offset-1">
+                <aside>
+                    {% for type, flash_messages in app.session.flashBag.all %}
+                        {% for flash_message in flash_messages %}
+                            <div class="flash-{{ type }}">
+                                {{ flash_message }}
+                            </div>
+                        {% endfor %}
+                    {% endfor %}
 
-    </aside>
+                </aside>
 
-    <main>
-        {% block content %}{% endblock %}
-    </main>
+                <main>
+                    {% block content %}{% endblock %}
+                </main>
 
-    <footer>
-        FOOTER
-    </footer>
+                <footer>
+                    FOOTER
+                </footer>
+            </div>
+        </div>
+    </div>
 {% endblock %}

@@ -4,6 +4,8 @@ header:
         equipments: Equipments
         about: About
         publicSite: Public Site
+        inspiration: Inspiration
+        contact: Contact
 
 blog:
     post:
@@ -37,3 +39,6 @@ blog:
             noComment: Be the first one to leave us a comment !
         create:
             title: New Post
+        enum:
+            category:
+                travel: Travel

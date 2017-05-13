@@ -37,6 +37,35 @@ a:hover {
     font-weight: 700;
 }
 
+.permanent-marker {
+    font-family: 'Permanent Marker', cursive;
+}
+
+.crop {
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+}
+
+.crop img {
+    position: absolute;
+    width: 100%;
+}
+
+.divider-vertical {
+    height: 40px;
+    border-left: 1px solid gray;
+    float: left;
+    opacity: 0.5;
+    margin: 5px 5px;
+}
+
+.divider-horizontal {
+    border-top: 1px solid gray;
+    opacity: 0.2;
+    margin: 5px 0;
+}
+
 /**
  * ADMIN - NAVIGATION
  */
@@ -50,7 +79,6 @@ a:hover {
     margin: 0;
     font-size: 1.5em;
     padding: 1em;
-    font-family: 'Permanent Marker', cursive;
 }
 
 #admin .main-nav aside {
@@ -84,4 +112,23 @@ a:hover {
 
 #admin .tab-pane textarea {
     height: 40em;
+}
+
+/**
+ * PUBLIC - GLOBAL
+ */
+body #public {
+    padding-top: 70px;
+}
+
+/**
+ * PUBLIC - BLOG LIST
+ */
+#public .post .info {
+    font-size: 1.2em;
+}
+
+#public .post .abstract {
+    height: 120px;
+
 }

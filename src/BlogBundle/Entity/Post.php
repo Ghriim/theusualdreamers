@@ -278,6 +278,24 @@ class Post extends AbstractBaseEntity
         throw new \LogicException();
     }
 
+
+
+    /**
+     * @param string $locale
+     *
+     * @return string
+     */
+    public function getLocalizedAbstract($locale = 'en')
+    {
+        if ('en' === $locale) {
+            return StringTools::getStringBetween($this->getEnglishContent(), '<p>', '</p>');
+        } elseif ('fr' === $locale) {
+            return StringTools::getStringBetween($this->getFrenchContent(), '<p>', '</p>');
+        }
+
+        throw new \LogicException();
+    }
+
     /**
      * @param string $locale
      *

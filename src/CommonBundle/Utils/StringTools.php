@@ -10,6 +10,26 @@ namespace CommonBundle\Utils;
 class StringTools
 {
     /**
+     * @param $string
+     * @param $start
+     * @param $end
+     *
+     * @return bool|string
+     */
+    static public function getStringBetween ($string, $start, $end)
+    {
+        $ini = strpos($string, $start);
+        if (false === $ini) {
+            return '';
+        }
+
+        $ini += strlen($start);
+        $len = strpos($string, $end, $ini) - $ini;
+
+        return substr($string, $ini, $len);
+    }
+
+    /**
      * @param $text
      *
      * @return string

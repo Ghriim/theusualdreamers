@@ -4,8 +4,9 @@
 
 {% block body %}
     <div id="admin" class="row fill">
+
         <nav class="col-sm-3 col-md-2 main-nav sidebar fill">
-            <h1 class="text-center">
+            <h1 class="permanent-marker text-center">
                 The Usual Dreamers
             </h1>
             <aside>
@@ -42,7 +43,8 @@
                 {% for type, flash_messages in app.session.flashBag.all %}
                     {% for flash_message in flash_messages %}
                         <div class="alert alert-{{ type }}">
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                                        aria-hidden="true">&times;</span></button>
                             {{ flash_message }}
                         </div>
                     {% endfor %}
