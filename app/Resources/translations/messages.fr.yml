@@ -26,6 +26,9 @@ blog:
             preview: Prévisualisation de l'Article
             edit: Editer
             publicView: Voir l'Article en mode Publique
+            backToList: Retourner à la liste
+            backToEdit: Retourner à l'édition
+            noComment: Soyez le premier / la première nous laisser un commentaire !
         save:
             save: Enregistrer
             cancel: Annuler

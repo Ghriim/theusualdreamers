@@ -2,7 +2,9 @@
 
 namespace CommonBundle\Controller\Traits;
 
+use BlogBundle\Entity\Comment;
 use BlogBundle\Entity\Post;
+use BlogBundle\Repository\CommentRepository;
 use BlogBundle\Repository\PostRepository;
 use Doctrine\Bundle\DoctrineBundle\Registry;
 
@@ -26,5 +28,13 @@ trait RepositoryTrait
     protected function getPostRepository ()
     {
         return $this->getDoctrine()->getRepository(Post::class);
+    }
+
+    /**
+     * @return CommentRepository
+     */
+    protected function getCommentRepository ()
+    {
+        return $this->getDoctrine()->getRepository(Comment::class);
     }
 }

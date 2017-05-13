@@ -4,6 +4,7 @@ namespace BlogBundle\Controller;
 
 use BlogBundle\Entity\Post;
 use CommonBundle\Controller\AbstractBaseController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
@@ -22,7 +23,7 @@ class PostController extends AbstractBaseController
         $posts = $this->getPostRepository()->getManyByCriteria(
             [
                 'publicationBefore' => new \DateTime(),
-                'status'            => Post::STATUS_ACTIVE
+                'status'            => Post::STATUS_PUBLISHED
             ]
         );
 
@@ -35,17 +36,19 @@ class PostController extends AbstractBaseController
     }
 
     /**
-     * @param string $slug
+     * @param Request $request
+     * @param string  $slug
      *
      * @return Response
      */
-    public function detailsAction ($slug)
+    public function detailsAction (Request $request, $slug)
     {
+        /** @var Post $post */
         $post = $this->getPostRepository()->getOneByCriteria(
             [
                 'slug' => $slug,
                 'publicationBefore' => new \DateTime(),
-                'status'            => Post::STATUS_ACTIVE
+                'status'            => Post::STATUS_PUBLISHED
             ]
         );
 
@@ -53,10 +56,19 @@ class PostController extends AbstractBaseController
             throw new NotFoundHttpException();
         }
 
+        $comments = $this->getCommentRepository()->getManyByCriteria(
+            [
+                'post'     => $post->getId(),
+                'locale'   => $request->get('_locale'),
+                'noParent' => true
+            ]
+        );
+
         return $this->render(
             'BlogBundle:Post:details.html.twig',
             [
-                'post' => $post
+                'post'     => $post,
+                'comments' => $comments
             ]
         );
     }

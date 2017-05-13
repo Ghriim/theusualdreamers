@@ -19,6 +19,7 @@ abstract class AbstractBaseController extends Controller
     use RepositoryTrait;
 
     const DEFAULT_PAGINATOR = 25;
+    const MODE_ADMIN = 'admin';
 
     /**
      * @return EntityManager

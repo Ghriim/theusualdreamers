@@ -41,23 +41,24 @@ class AdminPostController extends AbstractBaseController
     }
 
     /**
-     * @param string $slug
+     * @param Request $request
+     * @param string  $slug
      *
      * @return Response
      */
-    public function previewAction ($slug)
+    public function previewAction (Request $request, $slug)
     {
-        $post = $this->getPostRepository()->getOneByCriteria(
-            [
-                'slug' => $slug,
-                'publicationBefore' => new \DateTime()
-            ]
-        );
+        $post = $this->getPostRepository()->getOneByCriteria(['slug' => $slug]);
+        if (!$post) {
+            throw new NotFoundHttpException();
+        }
 
         return $this->render(
             'BlogBundle:Post:details.html.twig',
             [
-                'post' => $post
+                'post'   => $post,
+                'locale' => $request->get('_locale'),
+                'mode'   => self::MODE_ADMIN
             ]
         );
     }

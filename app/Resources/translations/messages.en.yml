@@ -32,5 +32,8 @@ blog:
             preview: Preview
             edit: Edit
             publicView: View public details
+            backToList: Back to the list
+            backToEdit: Back to edition
+            noComment: Be the first one to leave us a comment !
         create:
             title: New Post

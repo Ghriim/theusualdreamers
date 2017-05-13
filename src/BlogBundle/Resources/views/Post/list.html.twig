@@ -1,17 +1,20 @@
 {% extends "::public_base.html.twig" %}
 
+{% block title %}Blog{% endblock %}
+
 {% block content %}
     <section>
         {% for post in posts %}
+            {% set title = post.localizedTitle(app.request.get('_locale')) %}
+            {% set slug  = post.localizedSlug(app.request.get('_locale')) %}
 
-            {% block title %}Blog{% endblock %}
             <article>
                 <h2>
-                    <a href="{{ path('blog_post_details', {'slug': post.slug}) }}" title="{{ post.title }}">
-                        {{ post.title }}
+                    <a href="{{ path('blog_post_details', {'slug': slug}) }}" title="{{ title }}">
+                        {{ title }}
                     </a>
                 </h2>
-                <span>{{ post.publication|date('d/M/y') }}</span>
+                <span>{{ post.localizedPublicationDate }}</span>
             </article>
         {% endfor %}
     </section>

@@ -1,0 +1,62 @@
+BlogBundle\Entity\Comment:
+    type: entity
+    table: "`comment`"
+    repositoryClass: BlogBundle\Repository\CommentRepository
+    id:
+        id:
+            type: integer
+            length: null
+            unique: true
+            nullable: false
+            id: true
+            generator:
+                strategy: IDENTITY
+
+    fields:
+        authorName:
+            type: string
+            length: 150
+            unique: false
+            nullable: false
+        authorEmail:
+            type: string
+            length: 255
+            unique: false
+            nullable: false
+        authorWebsite:
+            type: string
+            length: 255
+            unique: false
+            nullable: true
+        content:
+            type: text
+            unique: false
+            nullable: false
+        locale:
+            type: string
+            length: 5
+            unique: false
+            nullable: false
+        notifyOnReply:
+            type: boolean
+            unqiue: false
+            nullable: false
+
+    manyToOne:
+        post:
+            targetEntity: BlogBundle\Entity\Post
+            joinTable:
+                referencedColumn: id
+                nullable: false
+                unique: false
+        parent:
+            targetEntity: BlogBundle\Entity\Comment
+            joinTable:
+                referencedColumn: id
+                nullable: true
+                unique: false
+
+    oneToMany:
+        children:
+            targetEntity: BlogBundle\Entity\Comment
+            mappedBy: parent

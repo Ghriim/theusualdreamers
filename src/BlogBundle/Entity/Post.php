@@ -3,6 +3,7 @@
 namespace BlogBundle\Entity;
 
 use CommonBundle\Entity\AbstractBaseEntity;
+use CommonBundle\Utils\DateTools;
 use CommonBundle\Utils\StringTools;
 use Symfony\Component\Validator\Context\ExecutionContextInterface;
 
@@ -69,6 +70,7 @@ class Post extends AbstractBaseEntity
     {
         return self::STATUS_BACK_LOG;
     }
+
 
     /**
      * @return string
@@ -226,6 +228,68 @@ class Post extends AbstractBaseEntity
         $this->publication = $publication;
 
         return $this;
+    }
+
+    /**
+     * @param string $locale
+     *
+     * @return string
+     */
+    public function getLocalizedTitle($locale = 'en')
+    {
+        if ('en' === $locale) {
+            return $this->getEnglishTitle();
+        } elseif ('fr' === $locale) {
+            return $this->getFrenchTitle();
+        }
+
+        throw new \LogicException();
+    }
+
+    /**
+     * @param string $locale
+     *
+     * @return string
+     */
+    public function getLocalizedSlug($locale = 'en')
+    {
+        if ('en' === $locale) {
+            return $this->getEnglishSlug();
+        } elseif ('fr' === $locale) {
+            return $this->getFrenchSlug();
+        }
+
+        throw new \LogicException();
+    }
+
+    /**
+     * @param string $locale
+     *
+     * @return string
+     */
+    public function getLocalizedContent($locale = 'en')
+    {
+        if ('en' === $locale) {
+            return $this->getEnglishContent();
+        } elseif ('fr' === $locale) {
+            return $this->getFrenchContent();
+        }
+
+        throw new \LogicException();
+    }
+
+    /**
+     * @param string $locale
+     *
+     * @return string
+     */
+    public function getLocalizedPublicationDate($locale = 'en')
+    {
+        if ($publication = $this->getPublication()) {
+            return $this->getPublication()->format(DateTools::getLocalizedDateFormat($locale));
+        }
+
+        return null;
     }
 
     /**
