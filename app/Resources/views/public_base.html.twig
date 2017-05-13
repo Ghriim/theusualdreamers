@@ -23,7 +23,7 @@
                         <div class="collapse navbar-collapse" id="main-nav">
                             <ul class="nav navbar-nav navbar-right">
                                 <li>
-                                    <a href="" title="">
+                                    <a href="{{ path('blog_post_list') }}" title="{{ 'header.navigation.blog' | trans }}">
                                         {{ 'header.navigation.blog' | trans }}
                                     </a>
                                 </li>
@@ -51,11 +51,13 @@
                                 <li class="hidden-sm divider-horizontal"></li>
                                 <li>
                                     {% if app.request.get('_locale') == 'en' %}
-                                        <a href="" title="Basculer le site en français">
+                                        <a href="{{ path('home_home_index', {'_locale': 'fr'}) }}"
+                                           title="Basculer le site en français">
                                             FR
                                         </a>
                                     {% elseif app.request.get('_locale') == 'fr' %}
-                                        <a href="" title="Switch the site to english">
+                                        <a href="{{ path('home_home_index', {'_locale': 'en'}) }}"
+                                           title="Switch the site to english">
                                             EN
                                         </a>
                                     {% endif %}

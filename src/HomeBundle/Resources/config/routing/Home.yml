@@ -1,0 +1,4 @@
+home_home_index:
+    path:     /{_locale}
+    defaults: { _controller: HomeBundle:Home:index }
+    methods: ['GET']

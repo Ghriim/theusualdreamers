@@ -13,7 +13,9 @@
                 <div class="col-sm-6 col-md-4 post">
                     <div class="thumbnail">
                         <div class="crop">
-                            <img src="{{ post.cover }}" alt="{{ title }}" class="img-responsive"/>
+                            <a href="{{ path('blog_post_details', {'slug': slug}) }}" title="{{ title }}">
+                                <img src="{{ post.cover }}" alt="{{ title }}" class="img-responsive"/>
+                            </a>
                         </div>
                         <div class="caption">
                             <h3>

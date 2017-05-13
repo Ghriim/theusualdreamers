@@ -128,7 +128,6 @@ body #public {
     font-size: 1.2em;
 }
 
-#public .post .abstract {
-    height: 120px;
-
+#public .post .caption {
+    height: 220px;
 }

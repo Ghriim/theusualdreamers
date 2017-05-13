@@ -19,6 +19,7 @@ class AppKernel extends Kernel
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
 
             new CommonBundle\CommonBundle(),
+            new HomeBundle\HomeBundle(),
             new BlogBundle\BlogBundle(),
         ];
 

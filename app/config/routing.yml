@@ -1,2 +1,5 @@
+home:
+    resource: "@HomeBundle/Resources/config/routing.yml"
+
 blog:
     resource: "@BlogBundle/Resources/config/routing.yml"
