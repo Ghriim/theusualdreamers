@@ -17,55 +17,61 @@
 
         {% if mode is defined and mode == 'admin' %}
             <div class="col-md-6 text-right">
-                <a href="{{ path('blog_admin_post_edit', {'slug': post.englishSlug}) }}" title="{{ 'blog.post.details.backToEdit'|trans }}">
+                <a href="{{ path('blog_admin_post_edit', {'slug': post.englishSlug}) }}"
+                   title="{{ 'blog.post.details.backToEdit'|trans }}">
                     {{ 'blog.post.details.backToEdit'|trans }}
                 </a>
             </div>
         {% endif %}
     </div>
-    <article>
-        <h2>{{ title }}</h2>
-        <div>
-            {{ content|raw }}
-        </div>
-        <span>{{ publicationDate }}</span>
 
-        <section>
-            AUTEUR
-        </section>
-    </article>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2 col-sm-12 col-xs-12">
+            <article>
+                <h2>{{ title }}</h2>
 
-    <aside>
-        ARTICLE SIMILAIRES
-    </aside>
+                <div class="margin-top">
+                    {{ content|raw }}
+                </div>
 
-    {% if comments is defined %}
-        <section>
-            COMMENTS
-            {% for comment in comments %}
-                <article class="row">
-                    <div class="col-md-12">
-                        <h3>{{ comment.authorName }}</h3>
-                        <h4>{{ comment.authorWebsite }}</h4>
-                        <p>
-                            {{ comment.content }}
-                        </p>
-                        {% for reply in comment.children %}
-                            <div class="row">
-                                <div class="col-lg-offset-1">
-                                    <h3>{{ reply.authorName }}</h3>
-                                    <h4>{{ reply.authorWebsite }}</h4>
-                                    <p>
-                                        {{ reply.content }}
-                                    </p>
-                                </div>
+                <p>
+                    <span class="label label-primary">{{ ('blog.post.enum.category.' ~ post.category)|trans }}</span>
+                    <span>{{ publicationDate }}</span>
+                </p>
+            </article>
+
+            {% if relatedPosts is defined %}
+                <aside class="related-posts">
+                    <h3>
+                        {{ 'blog.post.details.relatedPosts'|trans }}
+                    </h3>
+
+                    <div class="row">
+                        {% for relatedPost in relatedPosts %}
+                            <div class="col-sm-6 col-md-4 post">
+                                {% include "BlogBundle:Post:_post-for-list.html.twig" with {'post' : relatedPost} %}
                             </div>
                         {% endfor %}
                     </div>
-                </article>
-            {% else %}
-                {{ 'blog.post.details.noComment'|trans }}
-            {% endfor %}
-        </section>
-    {% endif %}
+                </aside>
+            {% endif %}
+
+            {% if comments is defined %}
+                <div class="comments">
+                    <h3>
+                        {{ 'blog.post.details.comments'|trans }}
+                    </h3>
+                    <ul class="media-list">
+                    {% for comment in comments %}
+                        <li class="media comment">
+                            {% include "BlogBundle:Post:_comment-for-list.html.twig" with {'comment' : comment, 'locale': locale} %}
+                        </li>
+                    </ul>
+                    {% else %}
+                        {{ 'blog.post.details.noComment'|trans }}
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+    </div>
 {% endblock %}

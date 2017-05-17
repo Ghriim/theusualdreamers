@@ -66,6 +66,10 @@ a:hover {
     margin: 5px 0;
 }
 
+.margin-top {
+    margin-top: 1em;
+}
+
 /**
  * ADMIN - NAVIGATION
  */
@@ -124,10 +128,62 @@ body #public {
 /**
  * PUBLIC - BLOG LIST
  */
+#public .post .thumbnail {
+    padding: 0;
+}
+
+#public .post .title {
+    font-size: 1.5em;
+}
+
+#public .post .abstract {
+    text-align: justify;
+}
+
 #public .post .info {
     font-size: 1.2em;
 }
 
 #public .post .caption {
-    height: 220px;
+    padding-left: 1.2em;
+    padding-right: 1.2em;
+}
+
+#public .posts .post .caption {
+    height: 160px;
+}
+
+#public .related-posts {
+    margin-top: 2em;
+}
+
+#public .related-posts .post .caption {
+    height: 190px;
+}
+
+#public .related-posts .title {
+    text-align: center;
+    font-size: 1.2em;
+}
+
+#public .comments .comment {
+    border-bottom: 1px solid lightgrey;
+    padding-bottom: 1em;
+}
+
+#public .comments .reply {
+    border-top: 1px solid lightgrey;
+    padding-top: 1em;
+}
+
+#public .comments .avatar {
+    width: 80px;
+}
+
+#public .comments .content {
+    padding-top: 0.3em;
+}
+
+#public .comment .media-body {
+    min-height: 80px;
 }

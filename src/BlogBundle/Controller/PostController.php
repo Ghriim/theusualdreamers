@@ -15,6 +15,8 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
  */
 class PostController extends AbstractBaseController
 {
+    const RELATED_POST_LIMIT = 3;
+
     /**
      * @return Response
      */
@@ -24,6 +26,10 @@ class PostController extends AbstractBaseController
             [
                 'publicationBefore' => new \DateTime(),
                 'status'            => Post::STATUS_PUBLISHED
+            ],
+            [],
+            [
+                'publication' => 'DESC'
             ]
         );
 
@@ -46,7 +52,7 @@ class PostController extends AbstractBaseController
         /** @var Post $post */
         $post = $this->getPostRepository()->getOneByCriteria(
             [
-                'slug' => $slug,
+                'slug'              => $slug,
                 'publicationBefore' => new \DateTime(),
                 'status'            => Post::STATUS_PUBLISHED
             ]
@@ -64,11 +70,26 @@ class PostController extends AbstractBaseController
             ]
         );
 
+        $relatedPosts = $this->getPostRepository()->getManyByCriteria(
+            [
+                'category'          => $post->getCategory(),
+                'publicationBefore' => new \DateTime(),
+                'status'            => Post::STATUS_PUBLISHED,
+                'excludedId'        => $post->getId()
+            ],
+            [],
+            [
+                'publication'   => 'DESC'
+            ],
+            self::RELATED_POST_LIMIT
+        );
+
         return $this->render(
             'BlogBundle:Post:details.html.twig',
             [
-                'post'     => $post,
-                'comments' => $comments
+                'post'         => $post,
+                'relatedPosts' => $relatedPosts,
+                'comments'     => $comments
             ]
         );
     }

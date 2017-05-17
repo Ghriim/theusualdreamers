@@ -21,6 +21,17 @@ class PostRepository extends AbstractBaseRepository
     }
 
     /**
+     * @param QueryBuilder   $queryBuilder
+     * @param int|int[]|null $id
+     *
+     * @return bool
+     */
+    public function addCriterionExcludedId (QueryBuilder $queryBuilder, $id)
+    {
+        return $this->addCriterion($queryBuilder, $this->getAlias(), 'id', $id, true);
+    }
+
+    /**
      * @param QueryBuilder    $queryBuilder
      * @param string|string[] $slug
      *
@@ -60,5 +71,25 @@ class PostRepository extends AbstractBaseRepository
         $queryBuilder->setParameter('date', $date);
 
         return false;
+    }
+
+    /**
+     * @param QueryBuilder $queryBuilder
+     * @param string       $category
+     *
+     * @return bool
+     */
+    public function addCriterionCategory (QueryBuilder $queryBuilder, $category)
+    {
+        return $this->addCriterion($queryBuilder, $this->getAlias(), 'category', $category);
+    }
+
+    /**
+     * @param QueryBuilder $queryBuilder
+     * @param string       $direction
+     */
+    public function addOrderByPublication (QueryBuilder $queryBuilder, $direction)
+    {
+        $this->addOrderBy($queryBuilder, $this->getAlias(), 'publication', $direction);
     }
 }

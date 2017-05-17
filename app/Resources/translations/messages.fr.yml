@@ -31,6 +31,8 @@ blog:
             backToList: Retourner à la liste
             backToEdit: Retourner à l'édition
             noComment: Soyez le premier / la première nous laisser un commentaire !
+            relatedPosts: Vous pourriez aussi aimer
+            comments: Commentaires
         save:
             save: Enregistrer
             cancel: Annuler

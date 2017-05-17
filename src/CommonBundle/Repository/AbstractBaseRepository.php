@@ -57,12 +57,18 @@ abstract class AbstractBaseRepository extends EntityRepository implements Reposi
      * @param array $criteria
      * @param array $selects
      * @param array $orders
+     * @param int   $limit
      *
      * @return array
      */
-    public function getManyByCriteria (array $criteria = [], array $selects = [], array $orders = [])
+    public function getManyByCriteria (array $criteria = [], array $selects = [], array $orders = [], $limit = null)
     {
-        return $this->getManyByCriteriaQueryBuilder($criteria, $selects, $orders)->getQuery()->execute();
+        $queryBuilder = $this->getManyByCriteriaQueryBuilder($criteria, $selects, $orders);
+        if ($limit) {
+            $queryBuilder->setMaxResults($limit);
+        }
+
+        return $queryBuilder->getQuery()->execute();
     }
 
     /**

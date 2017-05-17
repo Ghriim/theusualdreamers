@@ -3,6 +3,7 @@
 namespace BlogBundle\Entity;
 
 use CommonBundle\Entity\AbstractBaseEntity;
+use CommonBundle\Utils\DateTools;
 
 /**
  * Class Comment
@@ -242,5 +243,15 @@ class Comment extends AbstractBaseEntity
         $this->post = $post;
 
         return $this;
+    }
+
+    /**
+     * @param string $locale
+     *
+     * @return string
+     */
+    public function getLocalizedCreatedDate($locale = 'en')
+    {
+        return $this->getCreated()->format(DateTools::getLocalizedDateFormat($locale));
     }
 }

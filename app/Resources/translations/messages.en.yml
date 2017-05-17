@@ -37,6 +37,8 @@ blog:
             backToList: Back to the list
             backToEdit: Back to edition
             noComment: Be the first one to leave us a comment !
+            relatedPosts: You might also like
+            comments: Comments
         create:
             title: New Post
         enum:

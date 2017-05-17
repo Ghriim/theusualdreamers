@@ -1,0 +1,26 @@
+{% set created = comment.localizedCreatedDate(locale) %}
+
+<div>
+    <div class="media-left">
+        <a href="#">
+            <img class="media-object avatar" src="{{ asset('images/default-avatar-ponsy-deer.png') }}" alt="...">
+        </a>
+    </div>
+    <div class="media-body">
+        <h4 class="media-heading">
+            {{ comment.authorName }}{% if comment.authorWebsite %}&nbsp;({{ comment.authorWebsite }}){% endif %}
+        </h4>
+        <span>{{ created }}</span>
+        <p class="content">
+            {{ comment.content }}
+        </p>
+
+        <div>
+            {% for reply in comment.children %}
+                <div class="media reply">
+                    {% include "BlogBundle:Post:_comment-for-list.html.twig" with {'comment' : reply, 'locale': locale} %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
