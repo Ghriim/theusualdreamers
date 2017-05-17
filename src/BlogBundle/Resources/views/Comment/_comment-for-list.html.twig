@@ -1,6 +1,6 @@
 {% set created = comment.localizedCreatedDate(locale) %}
 
-<div>
+<div id="comment-{{ comment.id }}">
     <div class="media-left">
         <a href="#">
             <img class="media-object avatar" src="{{ asset('images/default-avatar-ponsy-deer.png') }}" alt="...">
@@ -18,7 +18,7 @@
         <div>
             {% for reply in comment.children %}
                 <div class="media reply">
-                    {% include "BlogBundle:Post:_comment-for-list.html.twig" with {'comment' : reply, 'locale': locale} %}
+                    {% include "BlogBundle:Comment:_comment-for-list.html.twig" with {'comment' : reply, 'locale': locale} %}
                 </div>
             {% endfor %}
         </div>

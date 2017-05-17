@@ -1,0 +1,41 @@
+<div class="row">
+    <div class="col-md-8 col-md-offset-2 col-sm-12 col-xs-12">
+        {{ form_start(form) }}
+
+        {{ form_errors(form) }}
+
+        {{ form_row(form.content) }}
+
+        <div class="row">
+            <div class="col-md-6 col-sm-12 col-xs-12">
+                {{ form_row(form.authorName) }}
+            </div>
+            <div class="col-md-6 col-sm-12 col-xs-12">
+                {{ form_row(form.authorWebsite) }}
+            </div>
+        </div>
+
+        <div>
+            {{ form_row(form.authorEmail) }}
+            <aside class="caption">Your email will not be displayed</aside>
+        </div>
+
+        <div class="hidden">
+            {{ form_row(form.parent) }}
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 col-sm-7 col-xs-8">
+                {{ form_row(form.notifyOnReply) }}
+            </div>
+            <div class="col-md-6 col-sm-5 col-xs-4 text-right">
+                <button class="btn btn-primary" type="submit">
+                    <i class="fa fa-floppy-o" aria-hidden="true"></i>
+                    {{ 'blog.post.details.save'|trans }}
+                </button>
+            </div>
+        </div>
+        {{ form_end(form) }}
+    </div>
+</div>

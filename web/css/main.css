@@ -66,8 +66,18 @@ a:hover {
     margin: 5px 0;
 }
 
+.margin-top-none {
+    margin-top: 0;
+}
+
 .margin-top {
     margin-top: 1em;
+}
+
+form aside.caption {
+    display: block;
+    font-style: italic;
+    margin-top: -1em;
 }
 
 /**
@@ -154,7 +164,7 @@ body #public {
 }
 
 #public .related-posts {
-    margin-top: 2em;
+    margin-top: 5em;
 }
 
 #public .related-posts .post .caption {
@@ -164,6 +174,20 @@ body #public {
 #public .related-posts .title {
     text-align: center;
     font-size: 1.2em;
+    margin-top: 0.5em;
+}
+
+
+/**
+ * PUBLIC - POST DETAILS
+ */
+#public .post-content img {
+    width: 100%;
+    margin-bottom: 1em;
+}
+
+#public .post-content p {
+    margin-bottom: 1em;
 }
 
 #public .comments .comment {
@@ -172,7 +196,7 @@ body #public {
 }
 
 #public .comments .reply {
-    border-top: 1px solid lightgrey;
+    border-top: 1px dashed lightgrey;
     padding-top: 1em;
 }
 
@@ -186,4 +210,8 @@ body #public {
 
 #public .comment .media-body {
     min-height: 80px;
+}
+
+#public #add-comment textarea {
+    height: 7em;
 }

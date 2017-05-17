@@ -33,6 +33,8 @@ blog:
             noComment: Soyez le premier / la première nous laisser un commentaire !
             relatedPosts: Vous pourriez aussi aimer
             comments: Commentaires
+            save: Enregistrer
+            category: Catégorie :
         save:
             save: Enregistrer
             cancel: Annuler
@@ -41,6 +43,10 @@ blog:
                 french: Prévisualier la version française
         create:
             title: Nouvel Article
-        enum:
-            category:
-                travel: Voyage
+    comment:
+        form:
+            content: Message
+            authorName: Nom
+            authorWebsite: Site internet
+            authorEmail: Email
+            notify: Me prévenir par email en cas de réponse

@@ -1,0 +1,23 @@
+BlogBundle\Entity\Comment:
+    properties:
+        content:
+            - Type: string
+            - NotBlank: ~
+            - Length:
+                max: 255
+
+        authorName:
+            - Type: string
+            - NotBlank: ~
+            - Length:
+                min: 3
+                max: 150
+
+        authorWebsite:
+            - Url: ~
+
+        authorEmail:
+            - Email: ~
+            - Length:
+                min: 3
+                max: 255

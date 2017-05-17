@@ -39,8 +39,18 @@ blog:
             noComment: Be the first one to leave us a comment !
             relatedPosts: You might also like
             comments: Comments
+            save: Save
+            category: Category:
         create:
             title: New Post
         enum:
             category:
                 travel: Travel
+
+    comment:
+        form:
+            content: Message
+            authorName: Name
+            authorWebsite: Website
+            authorEmail: Email
+            notify: Notify me of follow-up comments by email

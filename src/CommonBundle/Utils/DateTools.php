@@ -18,9 +18,10 @@ class DateTools
     {
         if ('en' === $locale) {
             return 'm/d/y';
-        } elseif ('en' === $locale) {
+        } elseif ('fr' === $locale) {
             return 'd/m/y';
         }
+
         throw new \LogicException();
     }
 }

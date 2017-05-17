@@ -8,6 +8,6 @@ blog_post_list:
 blog_post_details:
     path:     /{_locale}/blog/{slug}
     defaults: { _controller: BlogBundle:Post:details }
-    methods: ['GET']
+    methods: ['GET', 'POST']
     requirements:
         _locale: en|fr

@@ -30,13 +30,20 @@
             <article>
                 <h2>{{ title }}</h2>
 
-                <div class="margin-top">
+                <div class="post-content margin-top">
                     {{ content|raw }}
                 </div>
 
-                <p>
-                    <span class="label label-primary">{{ ('blog.post.enum.category.' ~ post.category)|trans }}</span>
-                    <span>{{ publicationDate }}</span>
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                        <label class="important">{{ 'blog.post.details.category'|trans }}</label>
+                        <span class="label label-primary">{{ ('blog.post.enum.category.' ~ post.category)|trans }}</span>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-6 text-right">
+                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                        <span>{{ publicationDate }}</span>
+                    </div>
+                </div>
                 </p>
             </article>
 
@@ -64,12 +71,18 @@
                     <ul class="media-list">
                     {% for comment in comments %}
                         <li class="media comment">
-                            {% include "BlogBundle:Post:_comment-for-list.html.twig" with {'comment' : comment, 'locale': locale} %}
+                            {% include "BlogBundle:Comment:_comment-for-list.html.twig" with {'comment' : comment, 'locale': locale} %}
                         </li>
-                    </ul>
                     {% else %}
-                        {{ 'blog.post.details.noComment'|trans }}
+                        <em>{{ 'blog.post.details.noComment'|trans }}</em>
                     {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+
+            {% if commentForm is defined %}
+                <div id="add-comment">
+                    {% include "BlogBundle:Comment:_add.html.twig" with {'form': commentForm} %}
                 </div>
             {% endif %}
         </div>
