@@ -18,13 +18,16 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 class PostController extends AbstractBaseController
 {
     const RELATED_POST_LIMIT = 3;
+    const DEFAULT_PUBLIC_POST_PAGINATOR = 15;
 
     /**
+     * @param Request $request
+     *
      * @return Response
      */
-    public function listAction ()
+    public function listAction (Request $request)
     {
-        $posts = $this->getPostRepository()->getManyByCriteria(
+        $queryBuilder = $this->getPostRepository()->getManyByCriteriaQueryBuilder(
             [
                 'publicationBefore' => new \DateTime(),
                 'status'            => Post::STATUS_PUBLISHED
@@ -35,10 +38,16 @@ class PostController extends AbstractBaseController
             ]
         );
 
+        $pagination = $this->getPaginator()->paginate(
+            $queryBuilder,
+            $request->query->getInt('page', 1),
+            self::DEFAULT_PUBLIC_POST_PAGINATOR
+        );
+
         return $this->render(
             'BlogBundle:Post:list.html.twig',
             [
-                'posts' => $posts
+                'pagination' => $pagination
             ]
         );
     }

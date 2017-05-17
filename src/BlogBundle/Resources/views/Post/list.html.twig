@@ -5,11 +5,15 @@
 {% block content %}
     <section class="posts">
         <div class="row">
-            {% for post in posts %}
+            {% for post in pagination %}
                 <div class="col-sm-6 col-md-4 post">
                     {% include "BlogBundle:Post:_post-for-list.html.twig" with {'post' : post} %}
                 </div>
             {% endfor %}
+        </div>
+
+        <div class="navigation text-center">
+            {{ knp_pagination_render(pagination) }}
         </div>
     </section>
 {% endblock %}
