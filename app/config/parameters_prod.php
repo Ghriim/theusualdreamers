@@ -14,4 +14,4 @@ $container->setParameter('mailer_password', getenv('MAILER_PASSWORD'));
 $container->setParameter('mailer_port', getenv('MAILER_PORT'));
 $container->setParameter('mailer_dev_recipient', getenv('MAILER_DEV_RECIPIENT') ? getenv('MAILER_DEV_RECIPIENT') : null);
 
-$container->setParameter('front_url', getenv('FRONT_URL'));
+$container->setParameter('root_url', getenv('ROOT_URL'));
