@@ -101,6 +101,11 @@ form aside.caption {
     text-align: center;
 }
 
+#admin .main-nav label {
+    margin-left: 1em;
+    font-weight: 400;
+}
+
 #admin .main-nav .side-menu li a {
     color: #FFF;
 }

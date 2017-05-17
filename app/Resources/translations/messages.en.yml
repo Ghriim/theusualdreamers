@@ -6,6 +6,7 @@ header:
         publicSite: Public Site
         inspiration: Inspiration
         contact: Contact
+        logout: Logout
 
 blog:
     post:
@@ -54,3 +55,10 @@ blog:
             authorWebsite: Website
             authorEmail: Email
             notify: Notify me of follow-up comments by email
+
+
+about:
+    title: About
+
+contact:
+    title: Contact

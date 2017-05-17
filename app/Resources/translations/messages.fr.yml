@@ -6,6 +6,7 @@ header:
         publicSite: Site Publique
         inspiration: Inspiration
         contact: Contact
+        logout: Déconnexion
 
 blog:
     post:
@@ -50,3 +51,9 @@ blog:
             authorWebsite: Site internet
             authorEmail: Email
             notify: Me prévenir par email en cas de réponse
+
+about:
+    title: A propos
+
+contact:
+    title: Contact

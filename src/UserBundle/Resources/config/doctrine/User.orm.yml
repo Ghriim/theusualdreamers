@@ -1,0 +1,13 @@
+UserBundle\Entity\User:
+    type:  entity
+    table: "`user`"
+    id:
+        id:
+            type: integer
+            length: null
+            unique: true
+            nullable: false
+            id: true
+            generator:
+                strategy: IDENTITY
+

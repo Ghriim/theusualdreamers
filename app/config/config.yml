@@ -5,6 +5,7 @@ imports:
     - { resource: bundles/doctrine.yml }
     - { resource: bundles/swiftmailer.yml }
     - { resource: bundles/knp_paginator.yml }
+    - { resource: bundles/fos_user.yml }
 
 parameters:
     locale: en
@@ -19,7 +20,7 @@ framework:
     form: ~
     csrf_protection: ~
     validation: { enable_annotations: true }
-    #serializer: { enable_annotations: true }
+    serializer: { enable_annotations: true }
     templating:
         engines: ['twig']
     default_locale: '%locale%'

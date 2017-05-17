@@ -17,12 +17,14 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
 
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
+            new FOS\UserBundle\FOSUserBundle(),
 
             new AboutBundle\AboutBundle(),
             new BlogBundle\BlogBundle(),
             new ContactBundle\ContactBundle(),
             new CommonBundle\CommonBundle(),
             new HomeBundle\HomeBundle(),
+            new UserBundle\UserBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
