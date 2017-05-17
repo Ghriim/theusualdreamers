@@ -1,0 +1,2 @@
+contact_contact:
+    resource: "@ContactBundle/Resources/config/routing/Contact.yml"

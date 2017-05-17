@@ -1,0 +1,4 @@
+about_about_index:
+    path:     /{_locale}/about
+    defaults: { _controller: AboutBundle:About:index }
+    methods: ['GET']

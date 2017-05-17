@@ -1,0 +1,2 @@
+about_about:
+    resource: "@AboutBundle/Resources/config/routing/About.yml"

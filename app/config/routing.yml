@@ -1,5 +1,12 @@
-home:
-    resource: "@HomeBundle/Resources/config/routing.yml"
+about:
+    resource: "@AboutBundle/Resources/config/routing.yml"
 
 blog:
     resource: "@BlogBundle/Resources/config/routing.yml"
+
+contact:
+    resource: "@ContactBundle/Resources/config/routing.yml"
+
+home:
+    resource: "@HomeBundle/Resources/config/routing.yml"
+
