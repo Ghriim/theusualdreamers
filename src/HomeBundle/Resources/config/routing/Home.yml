@@ -2,3 +2,10 @@ home_home_index:
     path:     /{_locale}
     defaults: { _controller: HomeBundle:Home:index }
     methods: ['GET']
+    requirements:
+        _locale: en|fr
+
+home_coming_soon:
+    path:     /coming-soon
+    defaults: { _controller: HomeBundle:Home:comingSoon }
+    methods: ['GET']

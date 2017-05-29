@@ -24,3 +24,10 @@ contact:
 
 home:
     resource: "@HomeBundle/Resources/config/routing.yml"
+
+root:
+    path: /
+    defaults:
+        _controller: FrameworkBundle:Redirect:redirect
+        route: home_coming_soon
+        permanent: false

@@ -40,6 +40,10 @@ a:hover {
     font-weight: 700;
 }
 
+.italic {
+    font-style: italic;
+}
+
 .permanent-marker {
     font-family: 'Permanent Marker', cursive;
 }
@@ -222,4 +226,34 @@ body #public {
 
 #public #add-comment textarea {
     height: 7em;
+}
+
+/**
+ * PUBLIC - COMING SOON
+ */
+#coming-soon {
+    background-image: url(../images/goodwp.com_32701.jpg);
+    text-align: center;
+    color: #FFF;
+}
+
+#coming-soon h1 {
+    font-size: 3.4em;
+    margin-top: 20%;
+}
+
+#coming-soon .social-network {
+    position: absolute;
+    bottom: 10%;
+    width: 99%;
+}
+
+#coming-soon .social-network ul li a {
+    font-size: 3em;
+    color: #FFF;
+    opacity: 0.8;
+}
+
+#coming-soon .social-network ul li a:hover {
+    opacity: 1;
 }

@@ -24,4 +24,16 @@ class HomeController extends AbstractBaseController
             'HomeBundle:Home:index.html.twig', []
         );
     }
+
+    /**
+     * @param Request $request
+     *
+     * @return Response
+     */
+    public function comingSoonAction (Request $request)
+    {
+        return $this->render(
+            'HomeBundle:Home:coming-soon.html.twig', []
+        );
+    }
 }
