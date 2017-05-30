@@ -26,7 +26,7 @@
     </div>
 
     <div class="row">
-        <div class="col-md-8 col-md-offset-2 col-sm-12 col-xs-12">
+        <div class="col-md-10 col-md-offset-1 col-sm-12 col-xs-12">
             <article>
                 <h2>{{ title }}</h2>
 
@@ -55,7 +55,7 @@
 
                     <div class="row">
                         {% for relatedPost in relatedPosts %}
-                            <div class="col-sm-6 col-md-4 post">
+                            <div class="col-sm-12 col-md-4 post">
                                 {% include "BlogBundle:Post:_post-for-list.html.twig" with {'post' : relatedPost} %}
                             </div>
                         {% endfor %}

@@ -52,6 +52,12 @@ blog:
             authorEmail: Email
             notify: Me prévenir par email en cas de réponse
 
+home:
+    section:
+        lastPosts: Derniers articles
+        about: Qui sommes-nous
+        instagram: Dernières images
+
 about:
     title: A propos
 

@@ -3,5 +3,74 @@
 {% block title %}The Usual Dreamers{% endblock %}
 
 {% block content %}
-    HOME
+    <section id="carousel-home" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#carousel-home" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel-home" data-slide-to="1"></li>
+            <li data-target="#carousel-home" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+            <div class="item active">
+                <img src="{{ asset('images/goodwp.com_32701.jpg') }}" class="img-responsive"
+                     alt="">
+                <div class="carousel-caption permanent-marker">
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="{{ asset('images/goodwp.com_32701.jpg') }}" class="img-responsive"
+                     alt="">
+                <div class="carousel-caption permanent-marker">
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="{{ asset('images/goodwp.com_32701.jpg') }}" class="img-responsive"
+                     alt="">
+                <div class="carousel-caption permanent-marker">
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <a class="left carousel-control" href="#carousel-home" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#carousel-home" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </section>
+
+    <section class="last-posts">
+        <h3 class="permanent-marker text-center">{{ 'home.section.lastPosts'|trans }}</h3>
+        <div class="row">
+            {% for post in posts %}
+                <div class="col-sm-12 col-md-4 post">
+                    {% include "BlogBundle:Post:_post-for-list.html.twig" with {'post' : post} %}
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section class="about">
+        <h3 class="permanent-marker text-center">{{ 'home.section.about'|trans }}</h3>
+
+        <div class="row">
+            <div class="col-md-3 col-md-offset-1 col-sm-12">
+
+            </div>
+            <div class="col-md-7 col-sm-12">
+                You have to start somewhre don't you ? We decided to start here, today. We decided to start by telling who we are and what drives to start such a journey, to drop everything and experience true changes...
+            </div>
+        </div>
+    </section>
+
+    <section class="instagram-overview">
+        <h3 class="permanent-marker text-center">{{ 'home.section.instagram'|trans }}</h3>
+    </section>
 {% endblock %}

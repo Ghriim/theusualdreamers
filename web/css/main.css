@@ -46,6 +46,7 @@ a:hover {
 
 .permanent-marker {
     font-family: 'Permanent Marker', cursive;
+    color: #525151;
 }
 
 .crop {
@@ -256,4 +257,20 @@ body #public {
 
 #coming-soon .social-network ul li a:hover {
     opacity: 1;
+}
+
+/**
+ * PUBLIC - HOME
+ */
+#public #carousel-home {
+    margin-bottom: 50px;
+}
+
+#public #carousel-home .item {
+    max-height: 400px;
+    overflow: hidden;
+}
+
+#public #carousel-home .item .carousel-caption {
+    font-size: 2em;
 }

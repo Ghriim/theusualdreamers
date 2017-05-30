@@ -56,6 +56,11 @@ blog:
             authorEmail: Email
             notify: Notify me of follow-up comments by email
 
+home:
+    section:
+        lastPosts: Last posts
+        about: Who we are
+        instagram: Last images
 
 about:
     title: About

@@ -2,6 +2,7 @@
 
 namespace HomeBundle\Controller;
 
+use BlogBundle\Entity\Post;
 use CommonBundle\Controller\AbstractBaseController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -13,6 +14,8 @@ use Symfony\Component\HttpFoundation\Response;
  */
 class HomeController extends AbstractBaseController
 {
+    const NUMBER_OF_POST = 3;
+
     /**
      * @param Request $request
      *
@@ -20,8 +23,23 @@ class HomeController extends AbstractBaseController
      */
     public function indexAction (Request $request)
     {
+        $lastPosts = $this->getPostRepository()->getManyByCriteria(
+            [
+                'publicationBefore' => new \DateTime(),
+                'status'            => Post::STATUS_PUBLISHED
+            ],
+            [],
+            [
+                'publication' => 'DESC'
+            ],
+            self::NUMBER_OF_POST
+        );
+
         return $this->render(
-            'HomeBundle:Home:index.html.twig', []
+            'HomeBundle:Home:index.html.twig',
+            [
+                'posts' => $lastPosts
+            ]
         );
     }
 
