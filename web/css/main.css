@@ -74,6 +74,10 @@ a:hover {
     margin: 5px 0;
 }
 
+.padding-none {
+    padding: 0 !important;
+}
+
 .margin-top-none {
     margin-top: 0;
 }
@@ -262,15 +266,44 @@ body #public {
 /**
  * PUBLIC - HOME
  */
-#public #carousel-home {
-    margin-bottom: 50px;
+#public #home section {
+    margin-bottom: 3em;
 }
 
-#public #carousel-home .item {
+#public #home #carousel-home {
+    margin-top: -20px;
+}
+
+#public #home #carousel-home .item {
     max-height: 400px;
     overflow: hidden;
 }
 
-#public #carousel-home .item .carousel-caption {
+#public #home #carousel-home .item .carousel-caption {
     font-size: 2em;
+}
+
+#public #home .about p {
+    font-size: 1.3em;
+    padding: 2em 2em 0 2em;
+}
+
+#public #home .main-post {
+    background-position: center;
+}
+
+#public #home .main-post .description {
+    background-color: rgba(255, 255, 255, 0.8);
+    margin-top: 2em;
+    margin-bottom: 2em;
+    padding: 1em 2em 2em 2em;
+}
+
+#public #home .main-post .description p {
+    font-size: 1.3em;
+    text-align: justify;
+}
+
+#public #home .instagram-overview img {
+    min-height: 100%;
 }

@@ -96,7 +96,6 @@ class AdminPostController extends AbstractBaseController
             $this->addFlash(
                 'success',
                 $this->getTranslator()->trans($messageKey, [], 'messages')
-
             );
 
             return $this->redirectToRoute('blog_admin_post_edit', ['slug' => $post->getEnglishSlug()]);

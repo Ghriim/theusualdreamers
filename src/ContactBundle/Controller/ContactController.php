@@ -3,6 +3,8 @@
 namespace ContactBundle\Controller;
 
 use CommonBundle\Controller\AbstractBaseController;
+use ContactBundle\Form\Model\ContactModel;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
@@ -15,8 +17,31 @@ class ContactController extends AbstractBaseController
     /**
      * @return Response
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
-        return $this->render("ContactBundle:Contact:index.html.twig");
+        $contact = new ContactModel();
+
+        $form = $this->createForm(
+            ContactType::class,
+            $contact,
+            [
+                'method' => 'POST',
+            ]
+        );
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->addFlash(
+                'success',
+                $this->getTranslator()->trans('contact.message.sent.success', [], 'messages')
+            );
+        }
+
+        return $this->render(
+            "ContactBundle:Contact:index.html.twig",
+            [
+                'form' => $form->createView()
+            ]
+        );
     }
 }

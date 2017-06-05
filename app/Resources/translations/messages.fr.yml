@@ -54,9 +54,10 @@ blog:
 
 home:
     section:
+        hostestPost: Article à la une
         lastPosts: Derniers articles
         about: Qui sommes-nous
-        instagram: Dernières images
+        instagram: Instagram
 
 about:
     title: A propos

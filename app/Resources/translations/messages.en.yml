@@ -58,9 +58,10 @@ blog:
 
 home:
     section:
+        hotestPost: Hotest post
         lastPosts: Last posts
         about: Who we are
-        instagram: Last images
+        instagram: Instagram
 
 about:
     title: About
