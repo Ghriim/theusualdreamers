@@ -14,8 +14,8 @@ monolog:
             handler: swift
         swift:
              type:       swift_mailer
-             from_email: 'theusualdreamers@gmail.com'
-             to_email:   'theusualdreamers@gmail.com'
+             from_email: 'theusualdreamers+bug@gmail.com'
+             to_email:   'theusualdreamers+bug@gmail.com'
              subject:    '[PROD LOG] An Error Occurred! %%message%%'
              level:      debug
              formatter:  monolog.formatter.html
