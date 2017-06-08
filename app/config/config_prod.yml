@@ -22,6 +22,10 @@ monolog:
              content_type: text/html
 
 swiftmailer:
-    transport: gmail
-    username:  "%mailer_username%"
+    transport: smtp
+    host:      smtp.gmail.com
+    username:  "%mailer_user%"
     password:  "%mailer_password%"
+    auth_mode: login
+    port:      587
+    encryption: tls

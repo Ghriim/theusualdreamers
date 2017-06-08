@@ -24,7 +24,11 @@ monolog:
             channels: [!event, !doctrine]
 
 swiftmailer:
-    transport: gmail
-    username:  "%mailer_username%"
+    transport: smtp
+    host:      smtp.gmail.com
+    username:  "%mailer_user%"
     password:  "%mailer_password%"
+    auth_mode: login
+    port:      587
+    encryption: tls
     delivery_address: "%mailer_dev_recipient%"
