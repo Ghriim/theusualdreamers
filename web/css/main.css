@@ -248,7 +248,7 @@ body .public-page .navbar-nav {
 /**
  * PUBLIC - COMING SOON
  */
-#coming-soon, #contact {
+#coming-soon, #contact, #error {
     background: url(../images/goodwp.com_32701.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
