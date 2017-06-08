@@ -22,9 +22,6 @@ monolog:
              content_type: text/html
 
 swiftmailer:
-    transport: smtp
-    host:      "%mailer_host%"
+    transport: gmail
     username:  "%mailer_username%"
     password:  "%mailer_password%"
-    port:      "%mailer_port%"
-    delivery_address: "%mailer_dev_recipient%"
