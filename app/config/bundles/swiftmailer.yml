@@ -1,5 +1,0 @@
-swiftmailer:
-    transport: gmail
-    username:  "%mailer_username%"
-    password:  "%mailer_password%"
-    delivery_address: "%mailer_dev_recipient%"

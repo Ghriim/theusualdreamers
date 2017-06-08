@@ -2,7 +2,6 @@ imports:
     - { resource: security.yml }
     - { resource: services.yml }
     - { resource: bundles/doctrine.yml }
-    - { resource: bundles/swiftmailer.yml }
     - { resource: bundles/knp_paginator.yml }
     - { resource: bundles/fos_user.yml }
 

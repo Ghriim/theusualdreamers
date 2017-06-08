@@ -36,6 +36,7 @@ class ContactController extends AbstractBaseController
             $message
                 ->setFrom($contact->getSenderEmail())
                 ->setTo('theusualdreamers@gmail.com')
+                ->setSubject('[Contact] ' . $contact->getSubject())
                 ->setBody($contact->getContent());
 
             $this->getMailer()->send($message);

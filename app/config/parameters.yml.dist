@@ -11,9 +11,11 @@ parameters:
     # You should uncomment this if you want to use pdo_sqlite
     #database_path: '%kernel.root_dir%/../var/data/data.sqlite'
 
-    mailer_username: ~
-    mailer_password: ~
-    mailer_dev_recipient: lambda@fakemail.com
+    mailer_host:       smtp.gmail.com
+    mailer_username:   login@fakemail.com
+    mailer_password:   password
+    mailer_port:       587
+    mailer_dev_recipient: dev@fakemail.com
 
     # A secret key that's used to generate certain security-related tokens
     secret: ThisTokenIsNotSoSecretChangeIt
