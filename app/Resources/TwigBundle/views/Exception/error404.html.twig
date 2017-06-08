@@ -18,8 +18,13 @@
 <body>
 <div id="error" class="container-fluid">
     <section>
-        <h1 class="permanent-marker">404</h1>
+        <h1 class="permanent-marker">Error 404 {{ error.code }}</h1>
         <h3 class="permanent-marker italic">Have you dream about this page ?</h3>
+        <div>
+            <a href="{{ path('home_home_index') }}">
+                Go back to Home page
+            </a>
+        </div>
     </section>
 </div>
 

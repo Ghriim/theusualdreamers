@@ -153,6 +153,31 @@ form aside.caption {
 }
 
 /**
+ * ERROR
+ */
+#coming-soon, #contact, #error {
+    background: url(../images/goodwp.com_32701.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+    text-align: center;
+    color: #FFF;
+}
+
+#coming-soon h1, #error h1 {
+    font-size: 3.4em;
+    margin-top: 20%;
+}
+
+#error a {
+    font-size: 1.5em;
+    color: #FFF;
+    text-decoration: underline;
+}
+
+/**
  * PUBLIC - GLOBAL
  */
 body .public-page {
@@ -163,6 +188,7 @@ body .public-page {
 body .public-page .navbar-nav {
     font-size: 1.3em;
 }
+
 
 /**
  * PUBLIC - BLOG LIST
@@ -248,21 +274,6 @@ body .public-page .navbar-nav {
 /**
  * PUBLIC - COMING SOON
  */
-#coming-soon, #contact, #error {
-    background: url(../images/goodwp.com_32701.jpg) no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-
-    text-align: center;
-    color: #FFF;
-}
-
-#coming-soon h1 {
-    font-size: 3.4em;
-    margin-top: 20%;
-}
 
 #coming-soon .social-network {
     position: absolute;
