@@ -39,6 +39,9 @@
                         {{ 'blog.post.list.table.header.publication'|trans }}
                     </th>
                     <th>
+                        {{ 'blog.post.list.table.header.author'|trans }}
+                    </th>
+                    <th>
                         {{ 'blog.post.list.table.header.status'|trans }}
                     </th>
                 </tr>
@@ -60,6 +63,9 @@
                         </td>
                         <td>
                             {{ post.publication ? post.publication|date('d/m/Y') : null }}
+                        </td>
+                        <td>
+                            {{ post.user }}
                         </td>
                         <td>
                             {{ post.status }}

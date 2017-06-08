@@ -24,7 +24,11 @@ class AdminPostController extends AbstractBaseController
      */
     public function listAction (Request $request)
     {
-        $queryBuilder = $this->getPostRepository()->getManyByCriteriaQueryBuilder();
+        $queryBuilder = $this->getPostRepository()->getManyByCriteriaQueryBuilder(
+            [],
+            [],
+            ['created' => 'DESC']
+        );
 
         $pagination = $this->getPaginator()->paginate(
             $queryBuilder,
@@ -71,12 +75,14 @@ class AdminPostController extends AbstractBaseController
      */
     public function saveAction (Request $request, $slug = null)
     {
-        $post = new Post();
         if (null !== $slug) {
             $post = $this->getPostRepository()->getOneByCriteria(['slug' => $slug]);
             if (!$post) {
                 throw new NotFoundHttpException();
             }
+        } else {
+            $post = new Post();
+            $post->setUser($this->getUser());
         }
 
         $form = $this->createForm(

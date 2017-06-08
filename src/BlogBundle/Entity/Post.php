@@ -6,6 +6,7 @@ use CommonBundle\Entity\AbstractBaseEntity;
 use CommonBundle\Utils\DateTools;
 use CommonBundle\Utils\StringTools;
 use Symfony\Component\Validator\Context\ExecutionContextInterface;
+use UserBundle\Entity\User;
 
 /**
  * Class Post
@@ -62,6 +63,11 @@ class Post extends AbstractBaseEntity
      * @var \DateTime $publication
      */
     protected $publication;
+
+    /**
+     * @var User $user
+     */
+    protected $user;
 
     /**
      * {@inheritdoc}
@@ -226,6 +232,26 @@ class Post extends AbstractBaseEntity
     public function setPublication ($publication)
     {
         $this->publication = $publication;
+
+        return $this;
+    }
+
+    /**
+     * @return User
+     */
+    public function getUser ()
+    {
+        return $this->user;
+    }
+
+    /**
+     * @param User $user
+     *
+     * @return $this
+     */
+    public function setUser ($user)
+    {
+        $this->user = $user;
 
         return $this;
     }

@@ -25,6 +25,7 @@ blog:
                     category: Catégorie
                     creation: Création
                     publication: Publication
+                    author: Auteur(e)
                     status: Statut
         details:
             preview: Prévisualisation de l'Article

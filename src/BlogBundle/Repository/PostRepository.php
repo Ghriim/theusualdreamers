@@ -92,4 +92,13 @@ class PostRepository extends AbstractBaseRepository
     {
         $this->addOrderBy($queryBuilder, $this->getAlias(), 'publication', $direction);
     }
+
+    /**
+     * @param QueryBuilder $queryBuilder
+     * @param string       $direction
+     */
+    public function addOrderByCreated (QueryBuilder $queryBuilder, $direction)
+    {
+        $this->addOrderBy($queryBuilder, $this->getAlias(), 'created', $direction);
+    }
 }

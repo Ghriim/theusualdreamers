@@ -56,3 +56,11 @@ BlogBundle\Entity\Post:
             length: null
             unique: false
             nullable: true
+
+    manyToOne:
+        user:
+            targetEntity: UserBundle\Entity\User
+            joinTable:
+                referencedColumn: id
+                nullable: false
+                unique: false

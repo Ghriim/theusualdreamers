@@ -25,6 +25,7 @@ blog:
                     category: Category
                     creation: Creation
                     publication: Publication
+                    author: Author
                     status: Status
         save:
             save: Save
