@@ -1,6 +1,7 @@
 UserBundle\Entity\User:
     type:  entity
     table: "`user`"
+    repositoryClass: UserBundle\Repository\UserRepository
     id:
         id:
             type: integer

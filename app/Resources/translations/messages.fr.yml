@@ -81,3 +81,14 @@ contact:
     message:
         sent:
             success: <strong>Message envoyé !</strong> On vous répond aussi vite que possible.
+
+user:
+    list:
+        title: Utilisateurs
+        count: Nombre d'utilisateurs :
+        table:
+            header:
+                username: Nom d'utilisateur
+                email: Email
+                lastLogin: Dernière connexion
+                roles: Roles

@@ -7,6 +7,8 @@ use BlogBundle\Entity\Post;
 use BlogBundle\Repository\CommentRepository;
 use BlogBundle\Repository\PostRepository;
 use Doctrine\Bundle\DoctrineBundle\Registry;
+use UserBundle\Entity\User;
+use UserBundle\Repository\UserRepository;
 
 /**
  * Class RepositoryTrait
@@ -36,5 +38,13 @@ trait RepositoryTrait
     protected function getCommentRepository ()
     {
         return $this->getDoctrine()->getRepository(Comment::class);
+    }
+
+    /**
+     * @return UserRepository
+     */
+    protected function getUserRepository ()
+    {
+        return $this->getDoctrine()->getRepository(User::class);
     }
 }

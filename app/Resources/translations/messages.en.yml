@@ -85,3 +85,14 @@ contact:
     message:
         sent:
             success: <strong>Message sent !</strong> We come back at as soon as possible.
+
+user:
+    list:
+        title: Users
+        count: Number of users:
+        table:
+            header:
+                username: Username
+                email: Email
+                lastLogin: Last login
+                roles: Roles

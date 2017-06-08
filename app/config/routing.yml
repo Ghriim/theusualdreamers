@@ -25,6 +25,9 @@ contact:
 home:
     resource: "@HomeBundle/Resources/config/routing.yml"
 
+user:
+    resource: "@UserBundle/Resources/config/routing.yml"
+
 root:
     path: /
     defaults:
