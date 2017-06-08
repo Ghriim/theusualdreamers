@@ -4,7 +4,6 @@
 
 {% block main %}
     <div id="home">
-
         {% set hotestPost = posts[0] %}
         <section class="main-post" style="background-image: url({{ hotestPost.cover }});">
             <div class="row">
@@ -32,9 +31,7 @@
                     </div>
                 </div>
             </div>
-
         </section>
-
 
         <section class="about">
             <h3 class="permanent-marker text-center">{{ 'home.section.about'|trans }}</h3>
