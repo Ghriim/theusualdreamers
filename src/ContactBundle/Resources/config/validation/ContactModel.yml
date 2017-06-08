@@ -1,0 +1,26 @@
+ContactBundle\Form\ModelContactModel:
+    properties:
+        senderName:
+            - Type: string
+            - NotBlank: ~
+            - Length:
+                min: 3
+                max: 255
+
+        senderEmail:
+            - Type: email
+            - NotBlank: ~
+            - Length:
+                min: 3
+                max: 255
+
+        subject:
+            - Type: string
+            - NotBlank: ~
+            - Length:
+                min: 3
+                max: 255
+
+        content:
+            - Type: string
+            - NotBlank: ~

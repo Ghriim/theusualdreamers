@@ -5,6 +5,7 @@
 {% set content = post.localizedContent(locale) %}
 {% set publicationDate = post.localizedPublicationDate(locale) %}
 
+{% block context %}blog-details{% endblock %}
 {% block title %}{{ title }}{% endblock %}
 
 {% block content %}
@@ -44,7 +45,6 @@
                         <span>{{ publicationDate }}</span>
                     </div>
                 </div>
-                </p>
             </article>
 
             {% if relatedPosts is defined %}

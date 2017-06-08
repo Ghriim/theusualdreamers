@@ -1,7 +1,51 @@
-{% extends "::public_base.html.twig" %}
+{% extends "::public_empty_base.html.twig" %}
+{% form_theme form 'bootstrap_3_layout.html.twig' %}
 
+{% block context %}contact{% endblock %}
 {% block title %}{{ 'contact.title'|trans }}{% endblock %}
 
-{% block content %}
-    CONTACT
+{% block main %}
+    <div class="container-fluid fill">
+
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                <div class="wrapper">
+                    <h3>{{ 'contact.title'|trans }}</h3>
+
+                    <p>
+                        {{ 'contact.introduction'|trans|raw }}
+                    </p>
+
+                    <aside>
+                        {% for type, flash_messages in app.session.flashBag.all %}
+                            {% for flash_message in flash_messages %}
+                                <div class="alert alert-{{ type }}">
+                                    {{ flash_message|raw }}
+                                </div>
+                            {% endfor %}
+                        {% endfor %}
+
+                    </aside>
+
+                    {{ form_start(form) }}
+
+                    {{ form_errors(form) }}
+
+                    {{ form_row(form.senderName) }}
+                    {{ form_row(form.senderEmail) }}
+                    {{ form_row(form.subject) }}
+                    {{ form_row(form.content) }}
+
+                    <div class="text-center">
+                        <button class="btn btn-primary" type="submit">
+                            <i class="fa fa-send" aria-hidden="true"></i>
+                            {{ 'contact.form.button.send'|trans }}
+                        </button>
+                    </div>
+
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

@@ -4,6 +4,7 @@ namespace ContactBundle\Controller;
 
 use CommonBundle\Controller\AbstractBaseController;
 use ContactBundle\Form\Model\ContactModel;
+use ContactBundle\Form\Type\ContactType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -31,6 +32,14 @@ class ContactController extends AbstractBaseController
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
+            $message = new \Swift_Message();
+            $message
+                ->setFrom($contact->getSenderEmail())
+                ->setTo('theusualdreamers@gmail.com')
+                ->setBody($contact->getContent());
+
+            $this->getMailer()->send($message);
+
             $this->addFlash(
                 'success',
                 $this->getTranslator()->trans('contact.message.sent.success', [], 'messages')

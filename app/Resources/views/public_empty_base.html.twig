@@ -1,36 +1,40 @@
 {% extends "::layout/_base.html.twig" %}
 
 {% block body %}
-    <div id="public">
+    <div id="{% block context %}{% endblock %}" class="public-page">
+        <header class="row">
+            <nav class="navbar navbar-default navbar-fixed-top">
+                <div class="col-md-10 col-md-offset-1">
+                    <div class="clearfix">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                    data-target="#main-nav" aria-expanded="false">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
 
-        <div class="container-fluid fill">
-            <header class="row">
-                <nav class="navbar navbar-default navbar-fixed-top">
-                    <div class="col-md-10 col-md-offset-1">
-                        <div class="clearfix">
-                            <div class="navbar-header">
-                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                                        data-target="#main-nav" aria-expanded="false">
-                                    <span class="sr-only">Toggle navigation</span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                </button>
+                            <a href="{{ path('home_home_index') }}" title="" class="permanent-marker navbar-brand">
+                                The Usual Dreamers
+                            </a>
+                        </div>
 
-                                <a href="{{ path('home_home_index') }}" title="" class="permanent-marker navbar-brand">
-                                    The Usual Dreamers
-                                </a>
-                            </div>
-
-                            <div class="collapse navbar-collapse" id="main-nav">
-                                <ul class="nav navbar-nav navbar-right">
-                                    <li>
-                                        <a href="{{ path('blog_post_list') }}"
-                                           title="{{ 'header.navigation.blog' | trans }}">
-                                            {{ 'header.navigation.blog' | trans }}
-                                        </a>
-                                    </li>
-                                    <!--
+                        <div class="collapse navbar-collapse" id="main-nav">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li>
+                                    <a href="{{ path('home_home_index') }}" class="permanent-marker"
+                                       title="{{ 'header.navigation.home' | trans }}">
+                                        {{ 'header.navigation.home' | trans }}
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('blog_post_list') }}" class="permanent-marker"
+                                       title="{{ 'header.navigation.blog' | trans }}">
+                                        {{ 'header.navigation.blog' | trans }}
+                                    </a>
+                                </li>
+                                <!--
                                 <li>
                                     <a href="" title="">
                                         {{ 'header.navigation.inspiration' | trans }}
@@ -42,40 +46,39 @@
                                     </a>
                                 </li>
                                 -->
-                                    <li>
-                                        <a href="{{ path('about_about_index') }}"
-                                           title="{{ 'header.navigation.about' | trans }}">
-                                            {{ 'header.navigation.about' | trans }}
+                                <li>
+                                    <a href="{{ path('about_about_index') }}" class="permanent-marker"
+                                       title="{{ 'header.navigation.about' | trans }}">
+                                        {{ 'header.navigation.about' | trans }}
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('contact_contact_index') }}" class="permanent-marker"
+                                       title="{{ 'header.navigation.contact' | trans }}">
+                                        {{ 'header.navigation.contact' | trans }}
+                                    </a>
+                                </li>
+                                <li class="hidden-sm hidden-xs divider-vertical"></li>
+                                <li class="hidden-sm divider-horizontal"></li>
+                                <li>
+                                    {% if app.request.get('_locale') == 'en' %}
+                                        <a href="{{ path('home_home_index', {'_locale': 'fr'}) }}" class="permanent-marker"
+                                           title="Basculer le site en français">
+                                            FR
                                         </a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ path('contact_contact_index') }}"
-                                           title="{{ 'header.navigation.contact' | trans }}">
-                                            {{ 'header.navigation.contact' | trans }}
+                                    {% elseif app.request.get('_locale') == 'fr' %}
+                                        <a href="{{ path('home_home_index', {'_locale': 'en'}) }}" class="permanent-marker"
+                                           title="Switch the site to english">
+                                            EN
                                         </a>
-                                    </li>
-                                    <li class="hidden-sm hidden-xs divider-vertical"></li>
-                                    <li class="hidden-sm divider-horizontal"></li>
-                                    <li>
-                                        {% if app.request.get('_locale') == 'en' %}
-                                            <a href="{{ path('home_home_index', {'_locale': 'fr'}) }}"
-                                               title="Basculer le site en français">
-                                                FR
-                                            </a>
-                                        {% elseif app.request.get('_locale') == 'fr' %}
-                                            <a href="{{ path('home_home_index', {'_locale': 'en'}) }}"
-                                               title="Switch the site to english">
-                                                EN
-                                            </a>
-                                        {% endif %}
-                                    </li>
-                                </ul>
-                            </div>
+                                    {% endif %}
+                                </li>
+                            </ul>
                         </div>
                     </div>
-                </nav>
-            </header>
-        </div>
+                </div>
+            </nav>
+        </header>
 
         {% block main %}{% endblock %}
     </div>

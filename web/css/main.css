@@ -92,6 +92,14 @@ form aside.caption {
     margin-top: -1em;
 }
 
+.row {
+    margin: 0;
+}
+
+.container .row, .container-fluid .row {
+    margin: 0 -15px;
+}
+
 /**
  * ADMIN - NAVIGATION
  */
@@ -148,47 +156,52 @@ form aside.caption {
 /**
  * PUBLIC - GLOBAL
  */
-body #public {
+body .public-page {
     padding-top: 70px;
+    height: 100%;
+}
+
+body .public-page .navbar-nav {
+    font-size: 1.3em;
 }
 
 /**
  * PUBLIC - BLOG LIST
  */
-#public .post .thumbnail {
+#blog-list.public-page .post .thumbnail {
     padding: 0;
 }
 
-#public .post .title {
+#blog-list.public-page .post .title {
     font-size: 1.5em;
 }
 
-#public .post .abstract {
+#blog-list.public-page .post .abstract {
     text-align: justify;
 }
 
-#public .post .info {
+#blog-list.public-page .post .info {
     font-size: 1.2em;
 }
 
-#public .post .caption {
+#blog-list.public-page .post .caption {
     padding-left: 1.2em;
     padding-right: 1.2em;
 }
 
-#public .posts .post .caption {
+#blog-list.public-page .posts .post .caption {
     height: 160px;
 }
 
-#public .related-posts {
+#blog-list.public-page .related-posts {
     margin-top: 5em;
 }
 
-#public .related-posts .post .caption {
+#blog-list.public-page .related-posts .post .caption {
     height: 190px;
 }
 
-#public .related-posts .title {
+#blog-list.public-page .related-posts .title {
     text-align: center;
     font-size: 1.2em;
     margin-top: 0.5em;
@@ -198,46 +211,51 @@ body #public {
 /**
  * PUBLIC - POST DETAILS
  */
-#public .post-content img {
+#blog-details.public-page .post-content img {
     width: 100%;
     margin-bottom: 1em;
 }
 
-#public .post-content p {
+#blog-details.public-page .post-content p {
     margin-bottom: 1em;
 }
 
-#public .comments .comment {
+#blog-details.public-page .comments .comment {
     border-bottom: 1px solid lightgrey;
     padding-bottom: 1em;
 }
 
-#public .comments .reply {
+#blog-details.public-page .comments .reply {
     border-top: 1px dashed lightgrey;
     padding-top: 1em;
 }
 
-#public .comments .avatar {
+#blog-details.public-page .comments .avatar {
     width: 80px;
 }
 
-#public .comments .content {
+#blog-details.public-page .comments .content {
     padding-top: 0.3em;
 }
 
-#public .comment .media-body {
+#blog-details.public-page .comment .media-body {
     min-height: 80px;
 }
 
-#public #add-comment textarea {
+#blog-details.public-page #add-comment textarea {
     height: 7em;
 }
 
 /**
  * PUBLIC - COMING SOON
  */
-#coming-soon {
-    background-image: url(../images/goodwp.com_32701.jpg);
+#coming-soon, #contact {
+    background: url(../images/goodwp.com_32701.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
     text-align: center;
     color: #FFF;
 }
@@ -266,44 +284,56 @@ body #public {
 /**
  * PUBLIC - HOME
  */
-#public #home section {
+#home.public-page section {
     margin-bottom: 3em;
 }
 
-#public #home #carousel-home {
-    margin-top: -20px;
-}
-
-#public #home #carousel-home .item {
-    max-height: 400px;
-    overflow: hidden;
-}
-
-#public #home #carousel-home .item .carousel-caption {
-    font-size: 2em;
-}
-
-#public #home .about p {
+#home.public-page .about p {
     font-size: 1.3em;
     padding: 2em 2em 0 2em;
 }
 
-#public #home .main-post {
-    background-position: center;
+#home.public-page .main-post {
+    margin-top: -20px;
+    min-height: 600px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
-#public #home .main-post .description {
+#home.public-page .main-post .description {
     background-color: rgba(255, 255, 255, 0.8);
     margin-top: 2em;
     margin-bottom: 2em;
     padding: 1em 2em 2em 2em;
 }
 
-#public #home .main-post .description p {
+#home.public-page .main-post .description p {
     font-size: 1.3em;
     text-align: justify;
 }
 
-#public #home .instagram-overview img {
-    min-height: 100%;
+#home.public-page .instagram-overview {
+    width: 100%;
+}
+
+/**
+ * PUBLIC - CONTACT
+ */
+#contact.public-page  .wrapper {
+    text-align: left;
+    color: #000000;
+    background-color: rgba(250, 250, 250, 0.9);
+    padding: 1.5em;
+}
+
+#contact.public-page  .wrapper h3 {
+    margin-top: 0;
+}
+
+#contact.public-page  textarea {
+    height: 10em;
 }

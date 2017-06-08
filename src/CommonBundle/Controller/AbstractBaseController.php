@@ -5,6 +5,7 @@ namespace CommonBundle\Controller;
 use CommonBundle\Controller\Traits\RepositoryTrait;
 use Doctrine\ORM\EntityManager;
 use Knp\Component\Pager\Paginator;
+use LDMR\CommonBundle\Service\Mailer;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Routing\Router;
 use Symfony\Component\Translation\Translator;
@@ -51,5 +52,13 @@ abstract class AbstractBaseController extends Controller
     protected function getPaginator ()
     {
         return $this->get('knp_paginator');
+    }
+
+    /**
+     * @return \Swift_Mailer
+     */
+    protected function getMailer ()
+    {
+        return $this->get('mailer');
     }
 }

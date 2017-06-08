@@ -1,5 +1,6 @@
 header:
     navigation:
+        home: Accueil
         blog: Blog
         equipments: Equipements
         about: A propos
@@ -57,10 +58,25 @@ home:
         hostestPost: Article à la une
         lastPosts: Derniers articles
         about: Qui sommes-nous
-        instagram: Instagram
+        instagram: Suivez-nous sur Instagram
 
 about:
     title: A propos
 
 contact:
     title: Contact
+    introduction: |
+        Une question ? Une suggestion ? Une demande en marriage proposal ? <br />
+        Dès lors que l'on a accès aux internets on lit et répond à tout les messages !
+    form:
+        field:
+            senderName: Nom / Compagnie
+            senderWebsite: Site internet
+            senderEmail: Email
+            subject: Sujet
+            content: Message
+        button:
+            send: Envoyer
+    message:
+        sent:
+            success: <strong>Message envoyé !</strong> On vous répond aussi vite que possible.

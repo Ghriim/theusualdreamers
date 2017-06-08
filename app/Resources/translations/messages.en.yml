@@ -1,5 +1,6 @@
 header:
     navigation:
+        home: Accueil
         blog: Blog
         equipments: Equipments
         about: About
@@ -61,10 +62,25 @@ home:
         hotestPost: Hotest post
         lastPosts: Last posts
         about: Who we are
-        instagram: Instagram
+        instagram: Follow us on Instagram
 
 about:
     title: About
 
 contact:
     title: Contact
+    introduction: |
+        A question ? A suggestion ? A marriage proposal ? <br />
+        The moment we have acces to the internets we reply to all of your messages !
+    form:
+        field:
+            senderName: Name / Company Name
+            senderWebsite: Website
+            senderEmail: Email
+            subject: Subject
+            content: Message
+        button:
+            send: Send
+    message:
+        sent:
+            success: <strong>Message sent !</strong> We come back at as soon as possible.

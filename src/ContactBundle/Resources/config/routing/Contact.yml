@@ -1,4 +1,4 @@
 contact_contact_index:
     path:     /{_locale}/contact
     defaults: { _controller: ContactBundle:Contact:index }
-    methods: ['GET']
+    methods: ['GET', 'POST']
