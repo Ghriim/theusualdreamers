@@ -24,7 +24,7 @@ monolog:
 swiftmailer:
     transport: smtp
     host:      smtp.gmail.com
-    username:  "%mailer_user%"
+    username:  "%mailer_username%"
     password:  "%mailer_password%"
     auth_mode: login
     port:      587
