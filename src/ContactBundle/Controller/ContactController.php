@@ -34,6 +34,7 @@ class ContactController extends AbstractBaseController
         if ($form->isSubmitted() && $form->isValid()) {
             $message = new \Swift_Message();
             $message
+                ->setFrom('contact@theusualdreamers.com')
                 ->setTo('theusualdreamers+contact@gmail.com')
                 ->setSubject('[CONTACT] ' . $contact->getSubject())
                 ->setBody($this->renderView(
