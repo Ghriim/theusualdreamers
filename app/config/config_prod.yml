@@ -23,7 +23,7 @@ monolog:
 
 swiftmailer:
     transport: smtp
-    host:      smtp.gmail.com
+    host:      smtp.sendgrid.net
     username:  "%mailer_username%"
     password:  "%mailer_password%"
     auth_mode: login
