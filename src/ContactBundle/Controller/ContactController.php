@@ -34,10 +34,14 @@ class ContactController extends AbstractBaseController
         if ($form->isSubmitted() && $form->isValid()) {
             $message = new \Swift_Message();
             $message
-                ->setFrom($contact->getSenderEmail())
-                ->setTo('theusualdreamers@gmail.com')
-                ->setSubject('[Contact] ' . $contact->getSubject())
-                ->setBody($contact->getContent());
+                ->setFrom($contact->getSenderEmail(), $contact->getSenderName())
+                ->setTo('theusualdreamers+contact@gmail.com')
+                ->setSubject('[CONTACT] ' . $contact->getSubject())
+                ->setBody($this->renderView(
+                    'ContactBundle:Contact:email.html.twig',
+                    ['contact' => $contact]
+                ))
+                ->setContentType('text/html');
 
             $this->getMailer()->send($message);
 
@@ -45,13 +49,13 @@ class ContactController extends AbstractBaseController
                 'success',
                 $this->getTranslator()->trans('contact.message.sent.success', [], 'messages')
             );
+
+            return $this->redirectToRoute('contact_contact_index');
         }
 
         return $this->render(
-            "ContactBundle:Contact:index.html.twig",
-            [
-                'form' => $form->createView()
-            ]
+            'ContactBundle:Contact:index.html.twig',
+            ['form' => $form->createView()]
         );
     }
 }
