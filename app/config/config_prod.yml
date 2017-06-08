@@ -5,22 +5,12 @@ imports:
 # Monolog
 monolog:
     handlers:
-        main:
-            type:         fingers_crossed
-            action_level: error
-            handler:      nested
-        nested:
-            type:  stream
-            path:  "php://stderr"
-            level: debug
-        console:
-            type:  console
         mail:
             type:         fingers_crossed
             action_level: critical
-            handler:      buffered
-        buffered:
-            type:    buffer
+            handler:      deduplicated
+        deduplicated:
+            type:    deduplication
             handler: swift
         swift:
              type:       swift_mailer
