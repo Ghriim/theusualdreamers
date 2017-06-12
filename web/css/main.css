@@ -304,6 +304,10 @@ body .public-page .navbar-brand {
  * PUBLIC - COMING SOON
  */
 
+#coming-soon h1, #coming-soon h3 {
+    color: #FFF
+}
+
 #coming-soon .social-network {
     position: absolute;
     bottom: 10%;
