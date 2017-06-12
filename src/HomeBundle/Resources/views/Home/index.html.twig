@@ -1,86 +1,81 @@
 {% extends "::public_empty_base.html.twig" %}
 
+{% block context %}home{% endblock %}
 {% block title %}The Usual Dreamers{% endblock %}
 
 {% block main %}
-    <div id="home">
-        {% set hotestPost = posts[0] %}
-        <section class="main-post" style="background-image: url({{ hotestPost.cover }});">
-            <div class="row">
-                <div class="col-md-4 col-md-offset-7 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1 description">
-                    <h2>{{ hotestPost.localizedTitle(app.request.get('_locale')) }}</h2>
-                    <p>
-                        {{ hotestPost.localizedAbstract(app.request.get('_locale')) }}
-                    </p>
-                    <a href="{{ path('blog_post_details', {'slug': hotestPost.localizedSlug(app.request.get('_locale'))}) }}"
-                       title="">Read more</a>
+    {% set hotestPost = posts[0] %}
+    {% set hotestPostTitle = hotestPost.localizedTitle(app.request.get('_locale')) %}
+    {% set hotestPostAbstract = hotestPost.localizedAbstract(app.request.get('_locale')) %}
+    {% set hotestPostSlug  = hotestPost.localizedSlug(app.request.get('_locale')) %}
+
+    <section class="main-post" style="background-image: url({{ hotestPost.cover }});">
+        <div class="row">
+            <div class="col-md-3 col-md-offset-7 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1 description">
+                <h2 class="permanent-marker">
+                    <a href="{{ path('blog_post_details', {'slug': hotestPostSlug}) }}"
+                       title="{{ hotestPostTitle }}">{{ hotestPostTitle }}</a>
+                </h2>
+                <p class="lead">
+                    {{ hotestPostAbstract }}
+                </p>
+                <div class="text-right">
+                    <a href="{{ path('blog_post_details', {'slug': hotestPostSlug}) }}"
+                       title="{{ hotestPostTitle }}" class="lead">
+                        {{ 'blog.common.read-more'|trans }}
+                    </a>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="last-posts">
-            <div class="row">
-                <div class="col-sm-10 col-md-offset-1">
-                    <h3 class="permanent-marker text-center">{{ 'home.section.lastPosts'|trans }}</h3>
-                    <div class="row">
-                        {% for post in posts %}
-                            <div class="col-sm-12 col-md-4 post">
-                                {% include "BlogBundle:Post:_post-for-list.html.twig" with {'post' : post} %}
-                            </div>
-                        {% endfor %}
-                    </div>
+    <section class="last-posts">
+        <div class="row">
+            <div class="col-sm-10 col-md-offset-1">
+                <h3 class="permanent-marker text-center">
+                    <a href="{{ path('blog_post_list') }}" title="{{ 'header.navigation.blog'|trans }}">
+                        {{ 'home.section.lastPosts'|trans }}
+                    </a>
+                </h3>
+                <div class="row">
+                    {% for post in posts %}
+                        <div class="col-sm-12 col-md-4 post">
+                            {% include "BlogBundle:Post:_post-for-list.html.twig" with {'post' : post} %}
+                        </div>
+                    {% endfor %}
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="about">
-            <h3 class="permanent-marker text-center">{{ 'home.section.about'|trans }}</h3>
-            <div class="row">
-                <div class="col-md-2 col-md-offset-3 col-xs-10 col-xs-offset-1">
-                    <img src="{{ asset('images/us.jpg') }}" alt="" class="img-circle img-responsive"/>
-                </div>
-                <div class="col-md-4 col-sm-12">
-                    <p>
-                        You have to start somewhre don't you ? We decided to start here, today. We decided to start by
-                        telling who we are and what drives to start such a journey, to drop everything and experience
-                        true changes...
-                    </p>
-                </div>
+    <section class="about">
+        <h3 class="permanent-marker text-center">
+            <a href="{{ path('about_about_index') }}" title="{{ 'header.navigation.blog'|trans }}">
+                {{ 'home.section.about'|trans }}
+            </a>
+        </h3>
+        <div class="row">
+            <div class="col-md-2 col-md-offset-3 col-xs-10 col-xs-offset-1">
+                <img src="{{ asset('images/us.jpg') }}" alt="" class="img-circle img-responsive"/>
             </div>
-        </section>
-        <section class="instagram-overview">
-            <h3 class="permanent-marker text-center">{{ 'home.section.instagram'|trans }}</h3>
-            <div class="row">
-                <div class="col-md-2 col-sm-4 col-xs-6 padding-none">
-                    <img src="https://instagram.fakl1-1.fna.fbcdn.net/t51.2885-15/e35/18723377_248294572241975_888792827062910976_n.jpg?se=7"
-                         alt="" class="img-responsive"/>
-                </div>
-
-                <div class="col-md-2 col-sm-4 col-xs-6 padding-none">
-                    <img src="https://instagram.fakl1-1.fna.fbcdn.net/t51.2885-15/e35/18722903_833470110136671_5234784643777036288_n.jpg"
-                         alt="" class="img-responsive"/>
-                </div>
-
-                <div class="col-md-2 col-sm-4 col-xs-6 padding-none">
-                    <img src="https://instagram.fakl1-1.fna.fbcdn.net/t51.2885-15/e35/18722648_228480557648717_4720205982137843712_n.jpg"
-                         alt="" class="img-responsive"/>
-                </div>
-
-                <div class="col-md-2 col-sm-4 col-xs-6 padding-none">
-                    <img src="https://instagram.fakl1-1.fna.fbcdn.net/t51.2885-15/e35/18514157_131765564054654_8848238022580240384_n.jpg"
-                         alt="" class="img-responsive"/>
-                </div>
-
-                <div class="col-md-2 col-sm-4 col-xs-6 padding-none">
-                    <img src="https://instagram.fakl1-1.fna.fbcdn.net/t51.2885-15/e35/18809050_757236844436009_1985827414055321600_n.jpg"
-                         alt="" class="img-responsive"/>
-                </div>
-
-                <div class="col-md-2 col-sm-4 col-xs-6 padding-none">
-                    <img src="https://instagram.fakl1-1.fna.fbcdn.net/t51.2885-15/e35/18514157_131765564054654_8848238022580240384_n.jpg"
-                         alt="" class="img-responsive"/>
-                </div>
+            <div class="col-md-4 col-sm-12">
+                <p>
+                    You have to start somewhre don't you ? We decided to start here, today. We decided to start by
+                    telling who we are and what drives to start such a journey, to drop everything and experience
+                    true changes...
+                </p>
             </div>
-        </section>
-    </div>
+        </div>
+    </section>
+    <section class="instagram-overview">
+        <h3 class="permanent-marker text-center">
+            <a href="https://www.instagram.com/theusualdreamers/?hl={{ app.request.get('_locale') }}"
+               title="{{ 'home.section.instagram'|trans }}" target="_blank">
+                {{ 'home.section.instagram'|trans }}
+            </a>
+        </h3>
+        <div class="row">
+            {% include "HomeBundle:Home:_instagram-showreal.html.twig" %}
+        </div>
+    </section>
 {% endblock %}

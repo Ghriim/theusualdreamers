@@ -1,24 +1,23 @@
 <div class="row">
     <div class="col-md-8 col-md-offset-2 col-sm-12 col-xs-12">
+        <h3>
+            {{ 'blog.post.details.yourComment'|trans }}
+        </h3>
+
         {{ form_start(form) }}
 
         {{ form_errors(form) }}
 
         {{ form_row(form.content) }}
 
-        <div class="row">
-            <div class="col-md-6 col-sm-12 col-xs-12">
-                {{ form_row(form.authorName) }}
-            </div>
-            <div class="col-md-6 col-sm-12 col-xs-12">
-                {{ form_row(form.authorWebsite) }}
-            </div>
-        </div>
+        {{ form_row(form.authorName) }}
 
         <div>
             {{ form_row(form.authorEmail) }}
-            <aside class="caption">Your email will not be displayed</aside>
+            <aside class="caption">{{ 'blog.comment.form.emailNotDisplayed'|trans }}</aside>
         </div>
+
+        {{ form_row(form.authorWebsite) }}
 
         <div class="hidden">
             {{ form_row(form.parent) }}

@@ -18,6 +18,7 @@
         padding-right: 40px;
         padding-left: 40px;
     }
+
     .main {
         padding: 20px;
     }
@@ -26,6 +27,12 @@
 body, html, .container-fluid, .fill {
     min-height: 100%;
     height: 100%;
+    font-size: 16px;
+}
+
+h1, h2, h3 {
+    font-weight: 700;
+    color: #333;
 }
 
 .tab-pane {
@@ -110,7 +117,7 @@ form aside.caption {
 
 #admin .main-nav h1 {
     margin: 0;
-    font-size: 1.5em;
+    font-size: 22px;
     padding: 1em;
 }
 
@@ -127,6 +134,7 @@ form aside.caption {
 
 #admin .main-nav .side-menu li a {
     color: #FFF;
+    font-size: 18px;
 }
 
 #admin .main-nav .side-menu li a:hover {
@@ -186,9 +194,12 @@ body .public-page {
 }
 
 body .public-page .navbar-nav {
-    font-size: 1.3em;
+    font-size: 22px;
 }
 
+body .public-page .navbar-brand {
+    font-size: 22px;
+}
 
 /**
  * PUBLIC - BLOG LIST
@@ -232,10 +243,13 @@ body .public-page .navbar-nav {
     margin-top: 0.5em;
 }
 
-
 /**
  * PUBLIC - POST DETAILS
  */
+#blog-details.public-page article h2 {
+    margin: 1em 0 1.5em 0;
+}
+
 #blog-details.public-page .post-content img {
     width: 100%;
     margin-bottom: 1em;
@@ -243,6 +257,21 @@ body .public-page .navbar-nav {
 
 #blog-details.public-page .post-content p {
     margin-bottom: 1em;
+}
+
+#blog-details.public-page .post-information {
+    margin-bottom: 2.5em;
+}
+
+@media (min-width: 768px) {
+    #blog-details.public-page .post-content h1,
+    #blog-details.public-page .post-content h2,
+    #blog-details.public-page .post-content h3,
+    #blog-details.public-page .post-content p,
+    #blog-details.public-page .post-information {
+        width: 70%;
+        margin-left: 15%;
+    }
 }
 
 #blog-details.public-page .comments .comment {
@@ -305,7 +334,7 @@ body .public-page .navbar-nav {
 
 #home.public-page .main-post {
     margin-top: -20px;
-    min-height: 600px;
+    min-height: 700px;
     background-position: center center;
     background-repeat: no-repeat;
     -webkit-background-size: cover;
@@ -314,16 +343,27 @@ body .public-page .navbar-nav {
     background-size: cover;
 }
 
+#home.public-page .main-post h2 {
+    font-size: 22px;
+    font-weight: 700;
+    font-family: 'Permanent Marker', cursive;
+}
+
 #home.public-page .main-post .description {
     background-color: rgba(255, 255, 255, 0.8);
-    margin-top: 2em;
-    margin-bottom: 2em;
     padding: 1em 2em 2em 2em;
+    position: absolute;
+    top: 20%;
 }
 
 #home.public-page .main-post .description p {
-    font-size: 1.3em;
     text-align: justify;
+}
+
+@media (min-width: 768px) {
+    .thumbnail .crop img {
+        bottom: -30%;
+    }
 }
 
 #home.public-page .instagram-overview {
@@ -333,17 +373,17 @@ body .public-page .navbar-nav {
 /**
  * PUBLIC - CONTACT
  */
-#contact.public-page  .wrapper {
+#contact.public-page .wrapper {
     text-align: left;
     color: #000000;
     background-color: rgba(250, 250, 250, 0.9);
     padding: 1.5em;
 }
 
-#contact.public-page  .wrapper h3 {
+#contact.public-page .wrapper h3 {
     margin-top: 0;
 }
 
-#contact.public-page  textarea {
+#contact.public-page textarea {
     height: 10em;
 }

@@ -29,21 +29,23 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1 col-sm-12 col-xs-12">
             <article>
-                <h2>{{ title }}</h2>
+                <h2 class="text-center">{{ title }}</h2>
 
-                <div class="post-content margin-top">
+                <div class="post-content text-justify margin-top lead">
                     {{ content|raw }}
                 </div>
 
-                <div class="row">
-                    <div class="col-md-6 col-sm-6 col-xs-6">
-                        <label class="important">{{ 'blog.post.details.category'|trans }}</label>
-                        <span class="label label-primary">{{ ('blog.post.enum.category.' ~ post.category)|trans }}</span>
-                    </div>
-                    <div class="col-md-6 col-sm-6 col-xs-6 text-right">
-                        <i class="fa fa-calendar" aria-hidden="true"></i>
-                        <span>{{ publicationDate }}</span>
-                    </div>
+                <div class="text-right post-information">
+                    <ul class="list-inline">
+                        <li>
+                            <label class="important">{{ 'blog.post.details.category'|trans }}</label>
+                            <span class="label label-primary">{{ ('blog.post.enum.category.' ~ post.category)|trans }}</span>
+                        </li>
+                        <li>
+                            <i class="fa fa-calendar" aria-hidden="true"></i>
+                            <span>{{ publicationDate }}</span>
+                        </li>
+                    </ul>
                 </div>
             </article>
 
@@ -64,19 +66,21 @@
             {% endif %}
 
             {% if comments is defined %}
-                <div class="comments">
-                    <h3>
-                        {{ 'blog.post.details.comments'|trans }}
-                    </h3>
-                    <ul class="media-list">
-                    {% for comment in comments %}
-                        <li class="media comment">
-                            {% include "BlogBundle:Comment:_comment-for-list.html.twig" with {'comment' : comment, 'locale': locale} %}
-                        </li>
-                    {% else %}
-                        <em>{{ 'blog.post.details.noComment'|trans }}</em>
-                    {% endfor %}
-                    </ul>
+                <div class="row comments">
+                    <div class="col-md-8 col-md-offset-2 col-sm-12">
+                        <h3>
+                            {{ 'blog.post.details.comments'|trans }}
+                        </h3>
+                        <ul class="media-list">
+                            {% for comment in comments %}
+                                <li class="media comment padding-none">
+                                    {% include "BlogBundle:Comment:_comment-for-list.html.twig" with {'comment' : comment, 'locale': locale} %}
+                                </li>
+                            {% else %}
+                                <em>{{ 'blog.post.details.noComment'|trans }}</em>
+                            {% endfor %}
+                        </ul>
+                    </div>
                 </div>
             {% endif %}
 

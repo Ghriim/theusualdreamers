@@ -10,6 +10,8 @@ header:
         logout: Déconnexion
 
 blog:
+    common:
+        read-more: Lire la suite
     post:
         create.success: Article créé avec succès !
         edit.success: Article mis à jour avec succès !
@@ -36,6 +38,7 @@ blog:
             noComment: Soyez le premier / la première nous laisser un commentaire !
             relatedPosts: Vous pourriez aussi aimer
             comments: Commentaires
+            yourComment: Votre commentaire
             save: Enregistrer
             category: Catégorie :
         save:
@@ -48,10 +51,11 @@ blog:
             title: Nouvel Article
     comment:
         form:
-            content: Message
-            authorName: Nom
+            content: Message *
+            authorName: Nom *
             authorWebsite: Site internet
-            authorEmail: Email
+            authorEmail: Email *
+            emailNotDisplayed: Votre email ne sera pas affiché
             notify: Me prévenir par email en cas de réponse
 
 home:

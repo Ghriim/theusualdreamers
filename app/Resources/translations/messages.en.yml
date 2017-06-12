@@ -10,6 +10,8 @@ header:
         logout: Logout
 
 blog:
+    common:
+        read-more: Read more
     post:
         create.success: Post created successfully !
         edit.success: Post updated successfully !
@@ -41,6 +43,7 @@ blog:
             backToEdit: Back to edition
             noComment: Be the first one to leave us a comment !
             relatedPosts: You might also like
+            yourComment: Your comment
             comments: Comments
             save: Save
             category: Category:
@@ -52,10 +55,11 @@ blog:
 
     comment:
         form:
-            content: Message
-            authorName: Name
+            content: Message *
+            authorName: Name *
             authorWebsite: Website
-            authorEmail: Email
+            authorEmail: Email *
+            emailNotDisplayed: Your email will not be displayed
             notify: Notify me of follow-up comments by email
 
 home:

@@ -5,7 +5,7 @@
 <div class="thumbnail">
     <div class="crop">
         <a href="{{ path('blog_post_details', {'slug': slug}) }}" title="{{ title }}">
-            <img src="{{ post.cover }}" alt="{{ title }}" class="img-responsive" />
+            <img src="{{ post.cover }}" alt="{{ title }}" class="img-responsive"/>
         </a>
     </div>
     <div class="caption">
@@ -14,12 +14,18 @@
                 {{ title }}
             </a>
         </h3>
-        <p class="abstract">
+        <p class="abstract lead text-justify">
             {{ abstract|truncate(200, true) }}
         </p>
+
+        <div class="text-right">
+            <a href="{{ path('blog_post_details', {'slug': slug }) }}" title="{{ title }}" class="lead">
+                {{ 'blog.common.read-more'|trans }}
+            </a>
+        </div>
     </div>
 
-    <div class="panel-footer">
+    <div class="panel-footer {% if display is not defined or display != true %}hidden{% endif %}">
         <div class="row info">
             <div class="col-xs-6 text-left">
                 <span class="label label-primary">{{ ('blog.post.enum.category.' ~ post.category)|trans }}</span>
