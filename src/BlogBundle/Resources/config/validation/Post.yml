@@ -21,6 +21,20 @@ BlogBundle\Entity\Post:
                 min: 10
                 max: 150
 
+        englishAbstract:
+            - Type: string
+            - NotBlank: ~
+            - Length:
+                min: 150
+                max: 255
+
+        frenchAbstract:
+            - Type: string
+            - NotBlank: ~
+            - Length:
+                min: 150
+                max: 255
+
         englishContent:
             - Type: string
 

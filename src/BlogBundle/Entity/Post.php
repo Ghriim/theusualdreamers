@@ -25,14 +25,14 @@ class Post extends AbstractBaseEntity
     protected $englishTitle;
 
     /**
-     * @var string $englishSlug
-     */
-    protected $englishSlug;
-
-    /**
      * @var string $frenchTitle
      */
     protected $frenchTitle;
+
+    /**
+     * @var string $englishSlug
+     */
+    protected $englishSlug;
 
     /**
      * @var string $frenchSlug
@@ -43,6 +43,16 @@ class Post extends AbstractBaseEntity
      * @var string $cover
      */
     protected $cover;
+
+    /**
+     * @var string $englishAbstract
+     */
+    protected $englishAbstract;
+
+    /**
+     * @var string $frenchAbstract
+     */
+    protected $frenchAbstract;
 
     /**
      * @var string $englishContent
@@ -76,7 +86,6 @@ class Post extends AbstractBaseEntity
     {
         return self::STATUS_BACK_LOG;
     }
-
 
     /**
      * @return string
@@ -152,6 +161,46 @@ class Post extends AbstractBaseEntity
     public function setCover ($cover)
     {
         $this->cover = $cover;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEnglishAbstract ()
+    {
+        return $this->englishAbstract;
+    }
+
+    /**
+     * @param string $englishAbstract
+     *
+     * @return $this
+     */
+    public function setEnglishAbstract ($englishAbstract)
+    {
+        $this->englishAbstract = $englishAbstract;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFrenchAbstract ()
+    {
+        return $this->frenchAbstract;
+    }
+
+    /**
+     * @param string $frenchAbstract
+     *
+     * @return $this
+     */
+    public function setFrenchAbstract ($frenchAbstract)
+    {
+        $this->frenchAbstract = $frenchAbstract;
 
         return $this;
     }
@@ -261,11 +310,12 @@ class Post extends AbstractBaseEntity
      *
      * @return string
      */
-    public function getLocalizedTitle($locale = 'en')
+    public function getLocalizedTitle ($locale = 'en')
     {
         if ('en' === $locale) {
             return $this->getEnglishTitle();
-        } elseif ('fr' === $locale) {
+        }
+        elseif ('fr' === $locale) {
             return $this->getFrenchTitle();
         }
 
@@ -277,11 +327,12 @@ class Post extends AbstractBaseEntity
      *
      * @return string
      */
-    public function getLocalizedSlug($locale = 'en')
+    public function getLocalizedSlug ($locale = 'en')
     {
         if ('en' === $locale) {
             return $this->getEnglishSlug();
-        } elseif ('fr' === $locale) {
+        }
+        elseif ('fr' === $locale) {
             return $this->getFrenchSlug();
         }
 
@@ -293,41 +344,41 @@ class Post extends AbstractBaseEntity
      *
      * @return string
      */
-    public function getLocalizedContent($locale = 'en')
+    public function getLocalizedAbstract ($locale = 'en')
+    {
+        if ('en' === $locale) {
+            return $this->getEnglishAbstract();
+        }
+        elseif ('fr' === $locale) {
+            return $this->getFrenchAbstract();
+        }
+
+        throw new \LogicException();
+    }
+
+    /**
+     * @param string $locale
+     *
+     * @return string
+     */
+    public function getLocalizedContent ($locale = 'en')
     {
         if ('en' === $locale) {
             return $this->getEnglishContent();
-        } elseif ('fr' === $locale) {
+        }
+        elseif ('fr' === $locale) {
             return $this->getFrenchContent();
         }
 
         throw new \LogicException();
     }
 
-
-
     /**
      * @param string $locale
      *
      * @return string
      */
-    public function getLocalizedAbstract($locale = 'en')
-    {
-        if ('en' === $locale) {
-            return StringTools::getStringBetween($this->getEnglishContent(), '<p>', '</p>');
-        } elseif ('fr' === $locale) {
-            return StringTools::getStringBetween($this->getFrenchContent(), '<p>', '</p>');
-        }
-
-        throw new \LogicException();
-    }
-
-    /**
-     * @param string $locale
-     *
-     * @return string
-     */
-    public function getLocalizedPublicationDate($locale = 'en')
+    public function getLocalizedPublicationDate ($locale = 'en')
     {
         if ($publication = $this->getPublication()) {
             return $this->getPublication()->format(DateTools::getLocalizedDateFormat($locale));
@@ -344,15 +395,15 @@ class Post extends AbstractBaseEntity
     public function validate (ExecutionContextInterface $context, $payload)
     {
         $isComplete = !empty($this->getEnglishContent())
-                         && !empty($this->getFrenchContent())
-                         && null !== $this->getCover()
-                         && null !== $this->getCategory()
-                         && null !== $this->getPublication();
+                      && !empty($this->getFrenchContent())
+                      && null !== $this->getCover()
+                      && null !== $this->getCategory()
+                      && null !== $this->getPublication();
 
         if (self::STATUS_PUBLISHED === $this->getStatus() && false === $isComplete) {
-            $context->buildViolation('A Post can only be published if it is entirely written')
-                    ->atPath('global')
-                    ->addViolation();
+            $context->buildViolation('A Post can only be published if it is entirely written')->atPath(
+                    'global'
+                )->addViolation();
         }
     }
 }

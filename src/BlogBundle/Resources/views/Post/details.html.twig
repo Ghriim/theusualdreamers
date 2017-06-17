@@ -2,6 +2,7 @@
 
 {% set locale = locale is defined ? locale : app.request.get('_locale') %}
 {% set title = post.localizedTitle(locale) %}
+{% set abstract = post.localizedAbstract(locale) %}
 {% set content = post.localizedContent(locale) %}
 {% set publicationDate = post.localizedPublicationDate(locale) %}
 
@@ -32,6 +33,10 @@
                 <h2 class="text-center">{{ title }}</h2>
 
                 <div class="post-content text-justify margin-top lead">
+                    <p>
+                        <em>{{ abstract }}</em>
+                    </p>
+
                     {{ content|raw }}
                 </div>
 

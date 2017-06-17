@@ -18,12 +18,12 @@ BlogBundle\Entity\Post:
             length: 150
             unique: true
             nullable: false
-        englishSlug:
+        frenchTitle:
             type: string
             length: 150
             unique: true
             nullable: false
-        frenchTitle:
+        englishSlug:
             type: string
             length: 150
             unique: true
@@ -32,6 +32,16 @@ BlogBundle\Entity\Post:
             type: string
             length: 150
             unique: true
+            nullable: false
+        englishAbstract:
+            type: string
+            length: 255
+            unique: false
+            nullable: false
+        frenchAbstract:
+            type: string
+            length: 255
+            unique: false
             nullable: false
         englishContent:
             type: text

@@ -156,7 +156,11 @@ form aside.caption {
     text-align: center;
 }
 
-#admin .tab-pane textarea {
+#admin .tab-pane .small-textarea textarea {
+    height: 10em;
+}
+
+#admin .tab-pane .big-textarea textarea {
     height: 40em;
 }
 
