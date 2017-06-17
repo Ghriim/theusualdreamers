@@ -204,7 +204,7 @@ body .public-page .navbar-brand {
 /**
  * PUBLIC - BLOG LIST
  */
-#blog-list.public-page .post .thumbnail {
+.public-page .post .thumbnail {
     padding: 0;
 }
 
@@ -220,13 +220,11 @@ body .public-page .navbar-brand {
     font-size: 1.2em;
 }
 
-#blog-list.public-page .post .caption {
+.public-page .post .caption {
     padding-left: 1.2em;
     padding-right: 1.2em;
-}
-
-#blog-list.public-page .posts .post .caption {
-    height: 160px;
+    height: 250px;
+    min-height: 250px;
 }
 
 #blog-list.public-page .related-posts {

@@ -41,6 +41,7 @@ blog:
             yourComment: Votre commentaire
             save: Enregistrer
             category: Catégorie :
+            author: Auteur :
         save:
             save: Enregistrer
             cancel: Annuler
@@ -64,6 +65,10 @@ home:
         lastPosts: Derniers articles
         about: Qui sommes-nous
         instagram: Suivez-nous sur Instagram
+        whoWeAre: |
+            Nous sommes <strong>Camille & Quentin</strong>, deux "jeunes cadres dynamiques" repentis.
+            Il y a quelques mois, nous avons décidé d'abandonner le confort d'un quotidien routinier pour partir <strong>sur les routes de Nouvelle-Zélande</strong>.
+            On a quitté nos jobs, rendu notre appartement et vendu nos meubles : <strong>on est fin prêts pour l'aventure !</strong>
 
 about:
     title: A propos

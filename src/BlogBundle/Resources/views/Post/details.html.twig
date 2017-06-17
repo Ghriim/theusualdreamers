@@ -38,6 +38,10 @@
                 <div class="text-right post-information">
                     <ul class="list-inline">
                         <li>
+                            <label class="important">{{ 'blog.post.details.author'|trans }}</label>
+                            <span>{{ post.user.username|trans }}</span>
+                        </li>
+                        <li>
                             <label class="important">{{ 'blog.post.details.category'|trans }}</label>
                             <span class="label label-primary">{{ ('blog.post.enum.category.' ~ post.category)|trans }}</span>
                         </li>

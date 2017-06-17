@@ -47,6 +47,7 @@ blog:
             comments: Comments
             save: Save
             category: Category:
+            author: Autor:
         create:
             title: New Post
         enum:
@@ -68,6 +69,10 @@ home:
         lastPosts: Last posts
         about: Who we are
         instagram: Follow us on Instagram
+        whoWeAre: |
+            We are <strong>Camille & Quentin</strong>, two dreamers who used to be stuck in Paris.
+            A few month ago, we decided to leave the comfort of a daily routine to go <strong>wander on the road of New Zeland</strong>.
+            We left our jobs and our appartment, sold all of our furnitures: <strong>we are ready for adventure !</strong>
 
 about:
     title: About
