@@ -1,7 +1,54 @@
 {% extends "::public_base.html.twig" %}
 
+{% block context %}about{% endblock %}
 {% block title %}{{ 'about.title'|trans }}{% endblock %}
 
 {% block content %}
-    ABOUT
+
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1 col-sm-12 margin-top">
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="{{ asset('images/her.jpg') }}" alt="" class="img-circle img-responsive margin-bottom"/>
+                </div>
+
+                <div class="col-md-8">
+                    <h2 class="permanent-marker margin-bottom">{{ 'about.section.camille.title'|trans }}</h2>
+                    <div class="lead">
+                        <p class="margin-bottom">{{ 'about.section.camille.part.1'|trans|raw }}</p>
+                        <p class="margin-bottom">{{ 'about.section.camille.part.2'|trans|raw }}</p>
+                        <p class="margin-bottom">{{ 'about.section.camille.part.3'|trans|raw }}</p>
+                        <ul>
+                            <li>{{ 'about.section.camille.point.1'|trans|raw }}</li>
+                            <li>{{ 'about.section.camille.point.2'|trans|raw }}</li>
+                            <li>{{ 'about.section.camille.point.3'|trans|raw }}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="margin-top"/>
+            <br />
+
+            <div class="row">
+                <div class="col-md-8 col-sm-12">
+                    <h2 class="permanent-marker margin-top-none margin-bottom">{{ 'about.section.quentin.title'|trans }}</h2>
+                    <div class="lead">
+                        <p class="margin-bottom">{{ 'about.section.quentin.part.1'|trans|raw }}</p>
+                        <p class="margin-bottom">{{ 'about.section.quentin.part.2'|trans|raw }}</p>
+                        <p class="margin-bottom">{{ 'about.section.quentin.part.3'|trans|raw }}</p>
+                        <ul>
+                            <li>{{ 'about.section.quentin.point.1'|trans|raw }}</li>
+                            <li>{{ 'about.section.quentin.point.2'|trans|raw }}</li>
+                            <li>{{ 'about.section.quentin.point.3'|trans|raw }}</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <img src="{{ asset('images/him.jpg') }}" alt="" class="img-circle img-responsive margin-bottom"/>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

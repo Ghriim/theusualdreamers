@@ -72,6 +72,49 @@ home:
 
 about:
     title: A propos
+    section:
+        camille:
+            title: Camille, 25 ans
+            part:
+                1: |
+                  <span class="dropcap">B</span>ien qu'elle ait peur du noir même dans un appartement en plein centre de Paris, elle a trouvé
+                  que partir en van au milieu de nul part était une bonne idée. <br/>
+                  L'aventure, elle est pour, tant qu'elle mange à heures fixes (vous ne voulez pas la croiser
+                  quand elle a faim !) et qu'elle a sa dose de chocolat toutes les 48h. <br/>
+                  Elle est la tête pensante du duo, la plus prudente.
+                2: |
+                  Pour préparer le voyage, elle a fait les demandes de visa, s'est renseignée sur les assurances
+                  et la liste des dangers potentiels auxquel Quentin pourrait s'exposer. <br />
+                  Mais elle a aussi enregistré une carte de tous les endroits où l'on pourrait prendre une
+                  douche en Nouvelle-Zélande, et vu toutes les vidéos YouTube sur l'organisation d'un sac de
+                  voyage.
+                3: |
+                  Ses passions dans la vie : les bébés chèvres qui sautent, le chocolat et le soleil (pas trop chaud quand même).
+            point:
+                1: <strong>Son film préféré :</strong> Forrest Gump
+                2: <strong>Son plat préféré :</strong> le gateau au chocolat (évidement)
+                3: <strong>Signe particulier :</strong> Actuellement en cours d'apprentissage du ukulele
+        quentin:
+            title: Quentin, 30 ans (en théorie)
+            part:
+                1: |
+                  <span class="dropcap">G</span>randir, il n'a pas eu le choix. Mûrir n'est pourtant pas encore au programme. <br/>
+                  Quentin est celui qui se blessera sûrement pendant le voyage, puisqu'après tout il se blesse
+                  peu importe le lieu et l'activité. <br/>
+                  Il collectionne les tatouages et les cicatrices, mais il n'a réussi à garder le compte que
+                  pour les tatouages. <br />
+                  Il est les jambes, et un peu les bras, mais pas trop (son truc c'est la course à pied).
+                2: |
+                  Pour préparer ce voyage, il a vu tout les épisodes de "Man vs Wild", étudié les techniques de
+                  survie des forces spéciales mais n'a pas pensé à apprendre à changer une roue de voiture.
+                3: |
+                  Ses passions dans la vie : la Guinness, le trail et la nature. <br/>
+                  Vous pouvez le reconnaître facilement sur les sentiers de course à sa casquette "colorée",
+                  que Camille tente régulièrement d'égarer.
+            point:
+                1: <strong>Son film préféré :</strong> Into the Wild
+                2: <strong>Sa boisson préférée :</strong> la Guinness (évidement)
+                3: <strong>Signe particulier :</strong> Un amour improbable pour les licornes
 
 contact:
     title: Contact

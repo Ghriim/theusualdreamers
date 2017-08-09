@@ -72,10 +72,49 @@ home:
         whoWeAre: |
             We are <strong>Camille & Quentin</strong>, two dreamers who used to be stuck in Paris.
             A few month ago, we decided to leave the comfort of a daily routine to go <strong>wander on the road of New Zeland</strong>.
-            We left our jobs and our appartment, sold all of our furnitures: <strong>we are ready for adventure !</strong>
 
 about:
     title: About
+    section:
+        camille:
+            title: Camille, 25 years old
+            part:
+                1: |
+                  <span class="dropcap">A</span>lthough she is afraid of the dark, even in an apartment in the middle of Paris,
+                   she thought it would be a great idea to live in a van in the middle of nowhere.<br/>
+                  She is definitely eager for adventures, as far as she gets to eat every 4 hours
+                  (you don’t want to meet her when she’s hungry !). A daily dose of chocolate is also needed. <br/>
+                  She is the smart head of the duo, the most careful one.
+                2: |
+                  In order to prepare this trip, she made the visa requests, she checked the insurance, and the list of
+                  potential dangers that Quentin could expose himself. <br />
+                  She also downloaded a map of all the places where you can take a shower in New-Zealand, and she have seen
+                  all YouTube videos about how to pack your bag.
+                3: |
+                  Her hobbies: cute baby goats that keep jumping, chocolate and sun (but not to hot though)
+            point:
+                1: <strong>Her favorite movie:</strong> Forrest Gump
+                2: <strong>Her favorite dish:</strong> chocolate cake (obviously)
+                3: <strong>Distincive sign:</strong> Currently learning how to play the ukulele
+        quentin:
+            title: Quentin, 30 years old (on his ID at least)
+            part:
+                1: |
+                  <span class="dropcap">G</span>rowing old is mandatory. Growing up is optional.
+                  This quote from C. Bryant summerizes him pretty well. <br />
+                  Quentin is the one that will probably get hurt during the trip, since he gets hurt no matter the place or the activity. <br />
+                  He’s collecting tatoos and scars, but he only succeed to keep counting the tattoos. <br />
+                  In the duo, he is the legs, and also a bit the arms, but no for too heavy stuff (after all he is more of a runner).
+                2: |
+                  In order to prepare this trip, he saw all episodes of "Man vs wild",
+                  studied all survival techniques from special forces, but he didn’t think that learning how to change a tire might come in handy.
+                3: |
+                  His hobbies: Guinness, trail and nature. <br/>
+                  You can recognize him on trail tracks thanks to his funny cap, the one that Camille regularly tries to lose.
+            point:
+                1: <strong>His favorite movie:</strong> Into the Wild
+                2: <strong>His favorite drink:</strong> Guinness (obviously)
+                3: <strong>Distinctive sign:</strong> A weird crazy love for unicorns
 
 contact:
     title: Contact

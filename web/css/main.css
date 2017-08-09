@@ -27,7 +27,8 @@
 body, html, .container-fluid, .fill {
     min-height: 100%;
     height: 100%;
-    font-size: 16px;
+    font-size: 18px;
+    font-family: serif;
 }
 
 h1, h2, h3 {
@@ -41,6 +42,15 @@ h1, h2, h3 {
 
 a:hover {
     text-decoration: none;
+}
+
+span.dropcap {
+    padding: 3px 8px 0 0;
+    font-size: 89px;
+    line-height: 0.78;
+    float: left;
+    font-family: 'Permanent Marker', cursive;
+    color: #444;
 }
 
 .important {
@@ -90,6 +100,10 @@ a:hover {
 
 .margin-top {
     margin-top: 1em;
+}
+
+.margin-bottom {
+    margin-bottom: 1em;
 }
 
 form aside.caption {
@@ -156,12 +170,16 @@ form aside.caption {
     text-align: center;
 }
 
+#admin input, #admin textarea {
+    font-size: 1.2em;
+}
+
 #admin .tab-pane .small-textarea textarea {
-    height: 10em;
+    height: 5em;
 }
 
 #admin .tab-pane .big-textarea textarea {
-    height: 40em;
+    height: 25em;
 }
 
 /**
@@ -210,6 +228,8 @@ body .public-page .navbar-brand {
  */
 .public-page .post .thumbnail {
     padding: 0;
+    border: none;
+    box-shadow: none;
 }
 
 #blog-list.public-page .post .title {
@@ -257,8 +277,12 @@ body .public-page .navbar-brand {
     margin-bottom: 1em;
 }
 
-#blog-details.public-page .post-content p {
+#blog-details.public-page .post-content p, #blog-details.public-page .post-content ul {
     margin-bottom: 1em;
+}
+
+#blog-details.public-page .post-content p.margin-bottom-small {
+    margin-bottom: 0.5em;
 }
 
 #blog-details.public-page .post-information {
@@ -273,6 +297,28 @@ body .public-page .navbar-brand {
     #blog-details.public-page .post-information {
         width: 70%;
         margin-left: 15%;
+    }
+
+    #blog-details.public-page .post-content ul {
+        width: 64%;
+        margin-left: 17%;
+    }
+
+    #blog-details.public-page .post-content .panoramic {
+        height: 700px;
+        overflow: hidden;
+        position: relative;
+        margin-bottom: 1em;
+    }
+
+    #blog-details.public-page .post-content .panoramic img {
+        position: absolute;
+        bottom: -100px;
+        width: 100%;
+    }
+
+    #blog-details.public-page .post-content .panoramic p {
+        font-size: 22px;
     }
 }
 
