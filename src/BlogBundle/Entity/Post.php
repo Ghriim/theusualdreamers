@@ -394,8 +394,8 @@ class Post extends AbstractBaseEntity
      */
     public function validate (ExecutionContextInterface $context, $payload)
     {
-        $isComplete = !empty($this->getEnglishContent())
-                      && !empty($this->getFrenchContent())
+        $isComplete = !empty($this->getFrenchContent())
+                      && !empty($this->getFrenchAbstract())
                       && null !== $this->getCover()
                       && null !== $this->getCategory()
                       && null !== $this->getPublication();

@@ -37,12 +37,12 @@ BlogBundle\Entity\Post:
             type: string
             length: 255
             unique: false
-            nullable: false
+            nullable: true
         frenchAbstract:
             type: string
             length: 255
             unique: false
-            nullable: false
+            nullable: true
         englishContent:
             type: text
             unique: false

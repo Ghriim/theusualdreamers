@@ -25,7 +25,7 @@ class PostType extends AbstractType
         $builder
             ->add('englishTitle')
             ->add('frenchTitle')
-            ->add('englishAbstract', TextareaType::class)
+            ->add('englishAbstract', TextareaType::class, ['required' => false])
             ->add('frenchAbstract', TextareaType::class)
             ->add('englishContent')
             ->add('frenchContent')

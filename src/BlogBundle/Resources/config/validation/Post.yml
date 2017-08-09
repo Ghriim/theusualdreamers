@@ -23,14 +23,12 @@ BlogBundle\Entity\Post:
 
         englishAbstract:
             - Type: string
-            - NotBlank: ~
             - Length:
                 min: 150
                 max: 255
 
         frenchAbstract:
             - Type: string
-            - NotBlank: ~
             - Length:
                 min: 150
                 max: 255

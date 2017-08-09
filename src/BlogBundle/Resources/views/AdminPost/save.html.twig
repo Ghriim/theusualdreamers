@@ -20,40 +20,16 @@
         <div class="col-md-9">
             <ul class="nav nav-tabs" role="tablist">
                 <li role="presentation" class="active">
-                    <a href="#english" aria-controls="english" role="tab" data-toggle="tab">English</a>
+                    <a href="#french" aria-controls="french" role="tab" data-toggle="tab">Français</a>
                 </li>
+
                 <li role="presentation">
-                    <a href="#french" aria-controls="french" role="tab" data-toggle="tab">French</a>
+                    <a href="#english" aria-controls="english" role="tab" data-toggle="tab">English</a>
                 </li>
             </ul>
 
             <div class="tab-content">
-                <div role="tabpanel" class="tab-pane active" id="english">
-                    {{ form_row(form.englishTitle) }}
-                    {% if post.englishSlug %}
-                        <div class="preview-slug">{{ rootUrl ~ 'en/blog/' ~ post.englishSlug }}</div>
-                    {% endif %}
-
-                    <div class="small-textarea">
-                        {{ form_row(form.englishAbstract) }}
-                    </div>
-
-                    <div class="big-textarea">
-                        {{ form_row(form.englishContent) }}
-                    </div>
-
-                    <div>
-                        {% if post.englishSlug %}
-                            <a href="{{ path('blog_admin_post_preview', {'_locale': 'en', 'slug': post.englishSlug}) }}"
-                               title="{{ 'blog.post.save.preview.english'|trans }}">
-                                <i class="fa fa-eye" aria-hidden="true"></i>
-                                {{ 'blog.post.save.preview.english'|trans }}
-                            </a>
-                        {% endif %}
-                    </div>
-                </div>
-
-                <div role="tabpanel" class="tab-pane" id="french">
+                <div role="tabpanel" class="tab-pane active" id="french">
                     {{ form_row(form.frenchTitle) }}
                     {% if post.frenchSlug %}
                         <div class="preview-slug">{{ rootUrl ~ 'fr/blog/' ~ post.frenchSlug }}</div>
@@ -73,6 +49,32 @@
                                title="{{ 'blog.post.save.preview.french'|trans }}">
                                 <i class="fa fa-eye" aria-hidden="true"></i>
                                 {{ 'blog.post.save.preview.french'|trans }}
+                            </a>
+                        {% endif %}
+                    </div>
+                </div>
+
+
+                <div role="tabpanel" class="tab-pane" id="english">
+                    {{ form_row(form.englishTitle) }}
+                    {% if post.englishSlug %}
+                        <div class="preview-slug">{{ rootUrl ~ 'en/blog/' ~ post.englishSlug }}</div>
+                    {% endif %}
+
+                    <div class="small-textarea">
+                        {{ form_row(form.englishAbstract) }}
+                    </div>
+
+                    <div class="big-textarea">
+                        {{ form_row(form.englishContent) }}
+                    </div>
+
+                    <div>
+                        {% if post.englishSlug %}
+                            <a href="{{ path('blog_admin_post_preview', {'_locale': 'en', 'slug': post.englishSlug}) }}"
+                               title="{{ 'blog.post.save.preview.english'|trans }}">
+                                <i class="fa fa-eye" aria-hidden="true"></i>
+                                {{ 'blog.post.save.preview.english'|trans }}
                             </a>
                         {% endif %}
                     </div>
