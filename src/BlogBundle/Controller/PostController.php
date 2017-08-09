@@ -29,8 +29,9 @@ class PostController extends AbstractBaseController
     {
         $queryBuilder = $this->getPostRepository()->getManyByCriteriaQueryBuilder(
             [
-                'publicationBefore' => new \DateTime(),
-                'status'            => Post::STATUS_PUBLISHED
+                'publicationBefore'    => new \DateTime(),
+                'status'               => Post::STATUS_PUBLISHED,
+                'availableForLanguage' => $request->get('_locale')
             ],
             [],
             [
@@ -126,8 +127,9 @@ class PostController extends AbstractBaseController
         $relatedPosts = $this->getPostRepository()->getManyByCriteria(
             [
                 'category'          => $post->getCategory(),
-                'publicationBefore' => new \DateTime(),
-                'status'            => Post::STATUS_PUBLISHED,
+                'publicationBefore'    => new \DateTime(),
+                'status'               => Post::STATUS_PUBLISHED,
+                'availableForLanguage' => $locale,
                 'excludedId'        => $post->getId()
             ],
             [],

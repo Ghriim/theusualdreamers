@@ -84,6 +84,23 @@ class PostRepository extends AbstractBaseRepository
         return $this->addCriterion($queryBuilder, $this->getAlias(), 'category', $category);
     }
 
+    public function addCriterionAvailableForLanguage (QueryBuilder $queryBuilder, $language)
+    {
+        if ($language === 'en') {
+            $this->addCriterion($queryBuilder, $this->getAlias(), 'englishAbstract', 'NOT NULL');
+            $this->addCriterion($queryBuilder, $this->getAlias(), 'englishContent', 'NOT NULL');
+
+            return true;
+        } elseif ($language === 'fr') {
+            $this->addCriterion($queryBuilder, $this->getAlias(), 'frenchAbstract', 'NOT NULL');
+            $this->addCriterion($queryBuilder, $this->getAlias(), 'frenchContent', 'NOT NULL');
+
+            return true;
+        }
+
+        return false;
+    }
+
     /**
      * @param QueryBuilder $queryBuilder
      * @param string       $direction

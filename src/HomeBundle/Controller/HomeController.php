@@ -25,8 +25,9 @@ class HomeController extends AbstractBaseController
     {
         $lastPosts = $this->getPostRepository()->getManyByCriteria(
             [
-                'publicationBefore' => new \DateTime(),
-                'status'            => Post::STATUS_PUBLISHED
+                'publicationBefore'    => new \DateTime(),
+                'status'               => Post::STATUS_PUBLISHED,
+                'availableForLanguage' => $request->get('_locale')
             ],
             [],
             [
