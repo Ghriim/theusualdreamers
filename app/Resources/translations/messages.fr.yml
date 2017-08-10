@@ -50,6 +50,10 @@ blog:
                 french: Prévisualier la version française
         create:
             title: Nouvel Article
+        enum:
+            category:
+                travel: Travel
+                vanlife: Vanlife
     comment:
         form:
             content: Message *

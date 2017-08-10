@@ -14,7 +14,7 @@ use Symfony\Component\HttpFoundation\Response;
  */
 class HomeController extends AbstractBaseController
 {
-    const NUMBER_OF_POST = 3;
+    const NUMBER_OF_POST = 4;
 
     /**
      * @param Request $request

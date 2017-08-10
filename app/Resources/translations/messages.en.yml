@@ -53,6 +53,7 @@ blog:
         enum:
             category:
                 travel: Travel
+                vanlifre: Vanlife
 
     comment:
         form:

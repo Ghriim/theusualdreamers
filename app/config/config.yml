@@ -6,7 +6,7 @@ imports:
     - { resource: bundles/fos_user.yml }
 
 parameters:
-    locale: en
+    locale: fr
 
 framework:
     #esi: ~
