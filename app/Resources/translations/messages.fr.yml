@@ -52,7 +52,7 @@ blog:
             title: Nouvel Article
         enum:
             category:
-                travel: Travel
+                travel: Voyage
                 vanlife: Vanlife
     comment:
         form:
