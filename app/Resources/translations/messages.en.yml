@@ -5,6 +5,7 @@ header:
         equipments: Equipments
         about: About
         publicSite: Public Site
+        dashboard: Dashboard
         inspiration: Inspiration
         contact: Contact
         logout: Logout
@@ -145,3 +146,14 @@ user:
                 email: Email
                 lastLogin: Last login
                 roles: Roles
+
+admin:
+    dashboard:
+        title: Dashboard
+        comment:
+            content: Comment content
+            authorName: Author
+            created: Creation date
+            post: Post
+            locale: Locale
+            count: Number of comments:

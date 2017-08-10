@@ -56,4 +56,22 @@ class CommentRepository extends AbstractBaseRepository
 
         return false;
     }
+
+    /**
+     * @param QueryBuilder $queryBuilder
+     */
+    public function addSelectPost (QueryBuilder $queryBuilder)
+    {
+        $queryBuilder->leftJoin('comment.post', 'comment_post');
+        $queryBuilder->addSelect('comment_post');
+    }
+
+    /**
+     * @param QueryBuilder $queryBuilder
+     * @param string       $direction
+     */
+    public function addOrderByCreated (QueryBuilder $queryBuilder, $direction)
+    {
+        $this->addOrderBy($queryBuilder, $this->getAlias(), 'created', $direction);
+    }
 }

@@ -1,2 +1,5 @@
 home_home:
     resource: "@HomeBundle/Resources/config/routing/Home.yml"
+
+home_admin_home:
+    resource: "@HomeBundle/Resources/config/routing/AdminHome.yml"

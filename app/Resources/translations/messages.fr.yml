@@ -5,6 +5,7 @@ header:
         equipments: Equipements
         about: A propos
         publicSite: Site Publique
+        dashboard: Dashboard
         inspiration: Inspiration
         contact: Contact
         logout: Déconnexion
@@ -148,3 +149,14 @@ user:
                 email: Email
                 lastLogin: Dernière connexion
                 roles: Roles
+
+admin:
+    dashboard:
+        title: Dashboard
+        comment:
+            content: Contenu du commentaire
+            authorName: Auteur
+            created: Date de création
+            post: Article
+            locale: Langue
+            count: Nombre de commentaires :
