@@ -12,62 +12,33 @@
 
 {% block content %}
     <div class="row">
-        <div class="col-md-6 text-left important">
-            {{ 'admin.dashboard.comment.count'|trans }}&nbsp;{{ pagination.getTotalItemCount }}
+        <div class="col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-body text-center">
+                    A
+                </div>
+            </div>
         </div>
-        <div class="col-md-6 text-right">
+        <div class="col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-body text-center">
+                    A
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-body text-center">
+                    A
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-body text-center">
+                    A
+                </div>
+            </div>
         </div>
     </div>
-    <section>
-        <div class="table-responsive">
-            <table class="table table-hover">
-                <thead>
-                <tr>
-                    <th>
-                        {{ 'admin.dashboard.comment.content'|trans }}
-                    </th>
-                    <th>
-                        {{ 'admin.dashboard.comment.authorName'|trans }}
-                    </th>
-                    <th>
-                        {{ 'admin.dashboard.comment.created'|trans }}
-                    </th>
-                    <th>
-                        {{ 'admin.dashboard.comment.post'|trans }}
-                    </th>
-                    <th>
-                        {{ 'admin.dashboard.comment.locale'|trans }}
-                    </th>
-                    <th></th>
-                </tr>
-                </thead>
-                <tbody>
-                {% for comment in pagination %}
-                    <tr>
-                        <td>{{ comment.content }}</td>
-                        <td>{{ comment.authorName }}</td>
-                        <td>{{ comment.created|date('d/m/Y') }}</td>
-                        <td>
-                            {% if comment.locale == 'fr' %}
-                                <a href="{{ path('blog_post_details', {'slug': comment.post.frenchSlug}) }}" title="{{ comment.post.frenchTitle }}">
-                                    {{ comment.post.frenchTitle }}
-                                </a>
-                            {% elseif comment.locale == 'en' %}
-                                <a href="{{ path('blog_post_details', {'slug': comment.post.englishSlug}) }}" title="{{ comment.post.englishTitle }}">
-                                    {{ comment.post.englishTitle }}
-                                </a>
-                            {% endif %}
-                        </td>
-                        <td>{{ comment.locale|upper }}</td>
-                        <td>Reply | Delete</td>
-                    </tr>
-                {% endfor %}
-                </tbody>
-            </table>
-        </div>
-
-        <div class="navigation text-center">
-            {{ knp_pagination_render(pagination) }}
-        </div>
-    </section>
 {% endblock %}

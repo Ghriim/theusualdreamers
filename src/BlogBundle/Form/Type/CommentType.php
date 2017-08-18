@@ -30,8 +30,8 @@ class CommentType extends AbstractType
             ->add('content', TextareaType::class, ['label' => 'blog.comment.form.content'])
             ->add('authorName', TextType::class, ['label' => 'blog.comment.form.authorName'])
             ->add('authorEmail', EmailType::class, ['label' => 'blog.comment.form.authorEmail'])
-            ->add('authorWebsite', UrlType::class, ['label' => 'blog.comment.form.authorWebsite'])
-            ->add('notifyOnReply', CheckboxType::class, ['label' => 'blog.comment.form.notify'])
+            ->add('authorWebsite', UrlType::class, ['label' => 'blog.comment.form.authorWebsite', 'required' => false])
+            ->add('notifyOnReply', CheckboxType::class, ['label' => 'blog.comment.form.notify', 'required' => false])
             ->add(
                 'parent',
                 EntityType::class,

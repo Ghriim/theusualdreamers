@@ -151,9 +151,10 @@ admin:
     dashboard:
         title: Dashboard
         comment:
+            title: Comments
             content: Comment content
             authorName: Author
-            created: Creation date
+            created: Creation
             post: Post
             locale: Locale
             count: Number of comments:

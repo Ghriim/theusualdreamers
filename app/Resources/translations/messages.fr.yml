@@ -154,9 +154,9 @@ admin:
     dashboard:
         title: Dashboard
         comment:
+            title: Commentaires
             content: Contenu du commentaire
             authorName: Auteur
-            created: Date de création
+            created: Création
             post: Article
-            locale: Langue
             count: Nombre de commentaires :

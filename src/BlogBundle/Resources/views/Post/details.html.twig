@@ -73,31 +73,6 @@
                     </div>
                 </aside>
             {% endif %}
-
-            {% if comments is defined %}
-                <div class="row comments">
-                    <div class="col-md-8 col-md-offset-2 col-sm-12">
-                        <h3>
-                            {{ 'blog.post.details.comments'|trans }}
-                        </h3>
-                        <ul class="media-list">
-                            {% for comment in comments %}
-                                <li class="media comment padding-none">
-                                    {% include "BlogBundle:Comment:_comment-for-list.html.twig" with {'comment' : comment, 'locale': locale} %}
-                                </li>
-                            {% else %}
-                                <em>{{ 'blog.post.details.noComment'|trans }}</em>
-                            {% endfor %}
-                        </ul>
-                    </div>
-                </div>
-            {% endif %}
-
-            {% if commentForm is defined %}
-                <div id="add-comment">
-                    {% include "BlogBundle:Comment:_add.html.twig" with {'form': commentForm} %}
-                </div>
-            {% endif %}
         </div>
     </div>
 {% endblock %}
